@@ -3,7 +3,7 @@
     <default-header></default-header>
     <project-description></project-description>
     <master-thesis></master-thesis>
-    <chatbot-interface></chatbot-interface>
+    <chatbot-interface :messages="messages"></chatbot-interface>
   </div>
 </template>
 
@@ -14,6 +14,7 @@ import ChatbotInterface from "~/components/landing_page/ChatbotInterface";
 
 export default {
   name: "LandingPage",
+  props: ["messages"],
   components: {ChatbotInterface, MasterThesis, ProjectDescription}
 }
 </script>
