@@ -1,13 +1,14 @@
 <template>
-  <div class="flex-1 p:2 sm:p-6 justify-between flex flex-col h-screen border-solid border-2 rounded-md">
+  <div class="chatbot-container flex-1 p:2 sm:p-6 justify-between flex flex-col h-screen border-solid border-2 rounded-md">
 
     <div id="messages"
          class="flex flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
-         <ChatbotMessage :is-user="message.isUser" :message="message.message" :key="message.message" v-for="message in messages"></ChatbotMessage>
+      <ChatbotMessage :is-user="message.isUser" :message="message.message" :key="message.message"
+                      v-for="message in messages"></ChatbotMessage>
     </div>
     <div class="border-t-2 border-gray-200 px-4 pt-4 mb-2 sm:mb-0">
       <div class="relative flex">
-        <input type="text" placeholder="Deine Frage :-)"
+        <input type="text" placeholder="Deine Frage :-)" v-model="userText"
                class="w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 pl-12 bg-gray-200 rounded-md py-3">
         <div class="absolute right-0 items-center inset-y-0 hidden sm:flex">
           <button type="button" @click="sendQuestion"
@@ -32,17 +33,27 @@ export default {
   name: "Chatbot",
   props: ["messages"],
   components: {ChatbotMessage},
+  data() {
+    return {userText: ""}
+  },
   methods: {
-    sendQuestion() {
-      this.messages.push({
-        isUser: false,
-        message: "Your error message says permission denied, npm global installs must be given root privileges."
-      })
+    async sendQuestion() {
+      this.messages.push({isUser: true, message: this.userText})
+      let response = await this.$axios.$post("api/messages", {
+        sender: "test_user",
+        message: this.userText
+      });
+      for (const chatbotEntry of response) {
+        this.messages.push({isUser: false, message: chatbotEntry["text"]})
+      }
+      this.userText = ""
     }
   }
 }
 </script>
 
 <style scoped>
-
+ .chatbot-container {
+   max-height: 700px;
+ }
 </style>

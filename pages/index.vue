@@ -9,17 +9,23 @@ import LandingPage from "~/components/landing_page/LandingPage.vue";
 export default Vue.extend({
   name: 'IndexPage',
   components: {LandingPage},
-  async asyncData({params, $http}) {
-    let messages = [
-      {
-        isUser: true,
-        message: "Can be verified on any platform using docker"
-      },
-      {
-        isUser: false,
-        message: "Your error message says permission denied, npm global installs must be given root privileges."
-      }]
-    return {messages}
+  data() {
+    return {messages: []}
   },
+  async fetch() {
+    let message = {
+      isUser: true,
+      message: "Hello"
+    };
+    this.messages.push(message);
+    let response = await this.$axios.$post("api/messages", {
+        sender: "test_user",
+        message: message.message
+      });
+    for (const chatbotEntry of response) {
+      this.messages.push({isUser: false, message: chatbotEntry["text"]});
+    }
+  },
+  fetchOnServer: false
 })
 </script>
