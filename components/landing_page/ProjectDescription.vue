@@ -10,8 +10,8 @@
                     </a>
                 </div>
             </div>
-            <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                <img src="/logo.png" alt="hero image">
+            <div class="hidden lg:mt-0 lg:col-span-5 lg:flex max-w-xs">
+                <img src="/chatbot.svg" alt="ClimateChangeBot image">
             </div>
         </div>
     </section>
