@@ -1,21 +1,26 @@
 <template>
   <div>
-    <default-header></default-header>
-    <project-description></project-description>
-    <master-thesis></master-thesis>
-    <chatbot-interface :messages="messages"></chatbot-interface>
+    <default-header/>
+    <project-description/>
+    <master-thesis/>
+    <chatbot-interface :messages="messages"/>
   </div>
 </template>
 
 <script>
-import ProjectDescription from "~/components/landing_page/ProjectDescription";
-import MasterThesis from "~/components/landing_page/MasterThesis";
-import ChatbotInterface from "~/components/landing_page/ChatbotInterface";
+import ProjectDescription from '~/components/landing_page/ProjectDescription'
+import MasterThesis from '~/components/landing_page/MasterThesis'
+import ChatbotInterface from '~/components/landing_page/ChatbotInterface'
 
 export default {
-  name: "LandingPage",
-  props: ["messages"],
-  components: {ChatbotInterface, MasterThesis, ProjectDescription}
+  name: 'LandingPage',
+  components: {ChatbotInterface, MasterThesis, ProjectDescription},
+  props: {
+    messages: {
+      type: String,
+      default: ''
+    }
+  }
 }
 </script>
 

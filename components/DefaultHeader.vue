@@ -33,7 +33,7 @@
 
 <script>
 export default {
-  name: "default-header"
+  name: 'default-header'
 }
 </script>
 
