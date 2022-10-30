@@ -19,8 +19,10 @@ export default {
   components: {Chatbot},
   props: {
     messages: {
-      type: String,
-      default: ''
+      type: Array,
+      default: function () {
+        return []
+      }
     }
   }
 }

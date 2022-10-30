@@ -17,8 +17,10 @@ export default {
   components: {ChatbotInterface, MasterThesis, ProjectDescription},
   props: {
     messages: {
-      type: String,
-      default: ''
+      type: Array,
+      default: function () {
+        return []
+      }
     }
   }
 }

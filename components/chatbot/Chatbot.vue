@@ -41,9 +41,11 @@ export default {
   name: 'Chatbot',
   components: {ChatbotMessage},
   props: {
-    message: {
-      type: String,
-      default: ''
+    messages: {
+      type: Array,
+      default: function () {
+        return []
+      }
     }
   },
   data() {

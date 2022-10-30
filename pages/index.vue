@@ -4,7 +4,7 @@
 
 <script lang="js">
 import Vue from 'vue'
-import LandingPage from "~/components/landing_page/LandingPage.vue";
+import LandingPage from '~/components/landing_page/LandingPage.vue'
 
 export default Vue.extend({
   name: 'IndexPage',
@@ -13,17 +13,17 @@ export default Vue.extend({
     return {messages: []}
   },
   async fetch() {
-    let message = {
+    const message = {
       isUser: true,
-      message: "Hello"
-    };
-    this.messages.push(message);
-    let response = await this.$axios.$post("api/messages", {
-        sender: "test_user",
-        message: message.message
-      });
+      message: 'Hello'
+    }
+    this.messages.push(message)
+    const response = await this.$axios.$post('api/messages', {
+      sender: 'test_user',
+      message: message.message
+    })
     for (const chatbotEntry of response) {
-      this.messages.push({isUser: false, message: chatbotEntry["text"]});
+      this.messages.push({isUser: false, message: chatbotEntry.text})
     }
   },
   fetchOnServer: false
