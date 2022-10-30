@@ -48,27 +48,4 @@ export default {
   serverMiddleware: [
     { path: '/api', handler: '~/api/rasaAPI.js' }
   ]
-
-  // axios: {
-  //   baseURL: 'http://127.0.0.1:5005',
-  //   proxyHeaders: false,
-  //   credentials: false,
-  //   headers: {
-  //     'Access-Control-Allow-Origin': '*',
-  //     "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
-  //   }
-  // },
-
-// proxy: {
-//   '/webhooks/': {changeOrigin: true, target: 'http://127.0.0.1:5005', pathRewrite: {'^/webhooks/': ''}}
-// },
-// proxy: {
-//   "/webhooks": "http://localhost:5005"
-// },
-
-// publicRuntimeConfig: {
-//   axios: {
-//     browserBaseURL: "http://127.0.0.1:5005"
-//   }
-// }
 }
