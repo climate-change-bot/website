@@ -17,7 +17,7 @@ export default {
     link: [
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
     ],
-    noscript: [{innerHTML: "This website requires JavaScript", body: true}]
+    noscript: [{innerHTML: 'This website requires JavaScript', body: true}]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
