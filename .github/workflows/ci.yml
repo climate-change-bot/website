@@ -63,6 +63,6 @@ jobs:
           IMAGE_TAG: 0.0.1
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker push 312310136925.dkr.ecr.eu-central-1.amazonaws.com/$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
 
