@@ -42,10 +42,14 @@ export default {
     '@nuxtjs/axios'
   ],
 
+  axios: {
+    baseURL: process.env.API_URL
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
   serverMiddleware: [
-    { path: '/api', handler: '~/api/rasaAPI.js' }
+    {path: '/api', handler: '~/api/rasaAPI.js'}
   ]
 }
