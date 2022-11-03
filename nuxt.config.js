@@ -17,7 +17,7 @@ export default {
     link: [
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
     ],
-    noscript: [{innerHTML: 'This website requires JavaScript', body: true}]
+    noscript: [{innerHTML: 'Diese Webseite benötigt JavaScript', body: true}]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -40,7 +40,7 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/axios',
-    ['nuxt-matomo', { matomoUrl: 'https://climatechangebotsite.matomo.cloud/', siteId: 1 }]
+    ['nuxt-matomo', {matomoUrl: 'https://climatechangebotsite.matomo.cloud/', siteId: 1}]
   ],
 
   axios: {
