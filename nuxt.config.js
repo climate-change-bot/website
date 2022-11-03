@@ -40,7 +40,7 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/axios',
-    ['nuxt-matomo', { matomoUrl: process.env.MATOMO_URL, siteId: 1 }]
+    ['nuxt-matomo', { matomoUrl: 'https://climatechangebotsite.matomo.cloud/', siteId: 1 }]
   ],
 
   axios: {
