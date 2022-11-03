@@ -17,9 +17,8 @@ export default Vue.extend({
       isUser: true,
       message: 'Hello'
     }
-    this.messages.push(message)
     const response = await this.$axios.$post('api/messages', {
-      sender: 'test_user',
+      sender: this.$store.state.uuid.uuid,
       message: message.message
     })
     for (const chatbotEntry of response) {
