@@ -6,10 +6,6 @@
           class="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">{{ message }}</span>
         </div>
       </div>
-      <img
-        src="/user_girl.svg"
-        alt="User ClimateChangeBot Profile"
-        class="w-8 h-8 rounded-full order-1">
     </div>
     <div v-else class="chat-message">
       <div class="flex items-end justify-end">
