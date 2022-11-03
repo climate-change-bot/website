@@ -60,9 +60,10 @@ jobs:
         env:
           ECR_REGISTRY: 312310136925.dkr.ecr.eu-central-1.amazonaws.com/climatechangebot
           ECR_REPOSITORY: website
+          MATOMO_URL: //climatechangebotsite.matomo.cloud/
           IMAGE_TAG: 0.0.1
         run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker build --build-arg MATOMO_URL=$MATOMO_URL -t  $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
 
