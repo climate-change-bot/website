@@ -8,10 +8,11 @@
         <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Hast du
           Fragen zum Klimawandel? Dann bist du hier genau richtig! Der ClimateChangeBot freut sich auf deine Fragen.</p>
         <div class="space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
-          <a href="https://github.com/themesberg/landwind"
-             class="inline-flex items-center justify-center w-full px-5 py-3 text-sm font-medium text-center text-gray-900 border border-gray-200 rounded-lg sm:w-auto hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+          <button
+            @click="$router.push({name: 'chatbot'})"
+            class="inline-flex items-center justify-center w-full px-5 py-3 text-sm font-medium text-center text-gray-900 border border-gray-200 rounded-lg sm:w-auto hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
             Start Chat
-          </a>
+          </button>
         </div>
       </div>
       <div class="hidden lg:mt-0 lg:col-span-5 lg:flex max-w-xs">
