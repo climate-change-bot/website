@@ -8,24 +8,21 @@
         </a>
         <div class="flex items-center lg:order-2">
           <div class="hidden mt-2 mr-4 sm:inline-block">
-            <a class="github-button"
-               href="https://github.com/themesberg/landwind"
-               data-size="large"
-               data-icon="octicon-star"
-               data-show-count="true"
-               aria-label="Star themesberg/landwind on GitHub">Star</a>
+            <a href="https://www.linkedin.com/in/roger-waldvogel/" target="_blank">
+              <img src="/linkedin.png" class="h-7">
+            </a>
           </div>
           <div class="hidden mt-2 mr-4 sm:inline-block">
-            <button class="bg-default-color hover:bg-default-color-dark text-white font-bold py-2 px-4 rounded">
-              Start Chat
-            </button>
+            <a href="https://github.com/climate-change-bot" target="_blank">
+              <img src="/github.png" class="h-7">
+            </a>
           </div>
         </div>
         <div class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1">
           <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-            <header-button-nav route="/" text="Home"></header-button-nav>
+            <header-button-nav route="/" text="Startseite"></header-button-nav>
             <header-button-nav route="/chatbot" text="Chatbot"></header-button-nav>
-            <header-button-nav route="/privacy" text="Privacy"></header-button-nav>
+            <header-button-nav route="/privacy" text="Datenschutz"></header-button-nav>
             <header-button-nav route="/contact" text="Kontakt"></header-button-nav>
           </ul>
         </div>
