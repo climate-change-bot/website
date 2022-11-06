@@ -56,8 +56,10 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
+      - uses: olegtarasov/get-tag@v2.1.2
+        id: tagName
+
       - name: Build, tag, and push image to Amazon ECR
-        uses: olegtarasov/get-tag@v2.1.2
         env:
           ECR_REGISTRY: 312310136925.dkr.ecr.eu-central-1.amazonaws.com/climatechangebot
           ECR_REPOSITORY: website
