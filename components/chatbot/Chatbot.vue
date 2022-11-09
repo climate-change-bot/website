@@ -1,6 +1,6 @@
 <template>
   <div
-    class="chatbot-container flex-1 p:2 sm:p-6 justify-between flex flex-col h-screen border-solid border-2 rounded-md">
+    class="chatbot-container flex-1 p:2 sm:p-6 justify-between flex flex-col h-full border-solid border-2 rounded-md mb-30">
 
     <div id="messages"
          class="flex flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
@@ -71,6 +71,10 @@ export default {
 
 <style scoped>
 .chatbot-container {
-  max-height: 700px;
+  max-height: 800px;
+  min-height: 400px;
+  height: 100%;
+  width: 100%;
+  max-width: 500px;
 }
 </style>

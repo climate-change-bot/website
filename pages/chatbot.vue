@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="h-full">
     <default-header/>
     <chatbot-interface :messages="messages"/>
   </div>
