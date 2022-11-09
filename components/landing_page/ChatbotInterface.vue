@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white h-full items-center flex justify-center chatbot-landing-page">
+  <div class="bg-gray-50 h-full items-center flex justify-center chatbot-landing-page">
     <Chatbot :messages="messages"/>
   </div>
 </template>
