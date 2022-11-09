@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gray-50 h-full items-center flex justify-center chatbot-landing-page">
-    <Chatbot :messages="messages"/>
+    <Chatbot/>
   </div>
 </template>
 
@@ -9,15 +9,7 @@ import Chatbot from '~/components/chatbot/Chatbot'
 
 export default {
   name: 'ChatbotInterface',
-  components: {Chatbot},
-  props: {
-    messages: {
-      type: Array,
-      default: function () {
-        return []
-      }
-    }
-  }
+  components: {Chatbot}
 }
 </script>
 

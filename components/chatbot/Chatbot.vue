@@ -7,7 +7,7 @@
          class="flex flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
       <ChatbotMessage :is-user="message.isUser"
                       :message="message.message"
-                      :key="message.message"
+                      :key="message.key"
                       v-for="message in messages"></ChatbotMessage>
     </div>
     <div class="border-t-2 border-gray-200 px-4 pt-4 mb-2 sm:mb-0">
@@ -42,29 +42,25 @@ import ChatbotMessage from '~/components/chatbot/ChatbotMessage'
 export default {
   name: 'Chatbot',
   components: {ChatbotMessage},
-  props: {
-    messages: {
-      type: Array,
-      default: function () {
-        return []
-      }
-    }
-  },
   data() {
     return {userText: ''}
+  },
+  computed: {
+    messages() {
+      return this.$store.state.messages.messages
+    }
   },
   methods: {
     async sendQuestion() {
       if (this.userText.length > 1) {
-        // eslint-disable-next-line vue/no-mutating-props
-        this.messages.push({isUser: true, message: this.userText})
+        this.$store.commit('messages/add', {isUser: true, message: this.userText})
         const response = await this.$axios.$post('api/messages', {
           sender: 'test_user',
           message: this.userText
         })
         for (const chatbotEntry of response) {
           // eslint-disable-next-line vue/no-mutating-props
-          this.messages.push({isUser: false, message: chatbotEntry.text})
+          this.$store.commit('messages/add', {isUser: false, message: chatbotEntry.text})
         }
         await this.$nextTick()
         this.$refs.messages.scrollTop = this.$refs.messages.scrollHeight
