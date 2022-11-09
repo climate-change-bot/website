@@ -2,10 +2,10 @@
   <header class="fixed w-full">
     <nav class="bg-white border-gray-200 py-2.5 dark:bg-gray-900">
       <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
-        <a href="#" class="flex items-center">
+        <NuxtLink to="/" class="flex items-center">
           <img src="/chatbot.svg" class="h-6 mr-3 sm:h-9" alt="Climate Change Bot Logo"/>
           <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Climate Change Bot</span>
-        </a>
+        </NuxtLink>
         <div class="flex items-center lg:order-2">
           <div class="hidden mt-2 mr-4 sm:inline-block">
             <a href="https://www.linkedin.com/in/roger-waldvogel/" target="_blank">
