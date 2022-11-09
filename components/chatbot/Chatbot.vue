@@ -55,8 +55,8 @@ export default {
   },
   methods: {
     async sendQuestion() {
-      // eslint-disable-next-line vue/no-mutating-props
       if (this.userText.length > 1) {
+        // eslint-disable-next-line vue/no-mutating-props
         this.messages.push({isUser: true, message: this.userText})
         const response = await this.$axios.$post('api/messages', {
           sender: 'test_user',
