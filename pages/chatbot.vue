@@ -17,7 +17,7 @@ export default Vue.extend({
     if (this.$store.state.messages.messages.length === 0) {
       const message = {
         isUser: true,
-        message: 'Hello'
+        message: '/greet'
       }
       const response = await this.$axios.$post('api/messages', {
         sender: this.$store.state.uuid.uuid,
