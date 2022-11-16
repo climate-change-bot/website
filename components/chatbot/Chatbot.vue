@@ -55,7 +55,7 @@ export default {
       if (this.userText.length > 1) {
         this.$store.commit('messages/add', {isUser: true, message: this.userText})
         const response = await this.$axios.$post('api/messages', {
-          sender: 'test_user',
+          sender: this.$store.state.uuid.uuid,
           message: this.userText
         })
         for (const chatbotEntry of response) {
