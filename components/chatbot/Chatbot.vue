@@ -59,8 +59,10 @@ export default {
           message: this.userText
         })
         for (const chatbotEntry of response) {
-          // eslint-disable-next-line vue/no-mutating-props
           this.$store.commit('messages/add', {isUser: false, message: chatbotEntry.text})
+        }
+        if (response.length === 0) {
+          this.$store.commit('messages/add', {isUser: false, message: 'Ups das habe ich nicht verstanden'})
         }
         await this.$nextTick()
         this.$refs.messages.scrollTop = this.$refs.messages.scrollHeight
