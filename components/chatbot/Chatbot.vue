@@ -21,7 +21,9 @@
         <div class="absolute right-0 items-center inset-y-0 hidden sm:flex">
           <button type="button"
                   @click="sendQuestion"
-                  class="inline-flex items-center justify-center rounded-lg px-4 py-3 transition duration-500 ease-in-out text-white bg-default-color hover:bg-default-color-dark focus:outline-none">
+                  class="inline-flex items-center justify-center rounded-lg px-4 py-3 transition duration-500 ease-in-out text-white focus:outline-none"
+                  :class="[userTextLength > 0 && !isSending ? 'bg-default-color hover:bg-default-color-dark': 'bg-slate-400']"
+                  :disabled="userTextLength === 0 || isSending">
             <span class="font-bold">Senden</span>
             <svg xmlns="http://www.w3.org/2000/svg"
                  viewBox="0 0 20 20"
@@ -33,7 +35,7 @@
           </button>
         </div>
       </div>
-      <div v-show="showUserTextLength" class="mt-2 text-sm">{{userTextLength}}/300</div>
+      <div v-show="showUserTextLength" class="mt-2 text-sm">{{ userTextLength }}/300</div>
     </div>
   </div>
 </template>
@@ -45,7 +47,7 @@ export default {
   name: 'Chatbot',
   components: {ChatbotMessage},
   data() {
-    return {userText: ''}
+    return {userText: '', isSending: false}
   },
   computed: {
     messages() {
@@ -61,20 +63,28 @@ export default {
   methods: {
     async sendQuestion() {
       if (this.userText.length > 1) {
-        this.$store.commit('messages/add', {isUser: true, message: this.userText})
-        const response = await this.$axios.$post('api/messages', {
-          sender: this.$store.state.uuid.uuid,
-          message: this.userText
-        })
-        for (const chatbotEntry of response) {
-          this.$store.commit('messages/add', {isUser: false, message: chatbotEntry.text})
+        try {
+          this.isSending = true
+          this.$store.commit('messages/add', {isUser: true, message: this.userText})
+          const response = await this.$axios.$post('api/messages', {
+            sender: this.$store.state.uuid.uuid,
+            message: this.userText
+          })
+          for (const chatbotEntry of response) {
+            this.$store.commit('messages/add', {isUser: false, message: chatbotEntry.text})
+          }
+          if (response.length === 0) {
+            this.$store.commit('messages/add', {isUser: false, message: 'Ups das habe ich nicht verstanden'})
+          }
+          await this.$nextTick()
+          this.$refs.messages.scrollTop = this.$refs.messages.scrollHeight
+          this.userText = ''
+        } catch (error) {
+          this.userText = ''
+          this.$store.commit('messages/add', {isUser: false, message: 'Ups, da ist ein Fehler aufgetreten'})
+        } finally {
+          this.isSending = false
         }
-        if (response.length === 0) {
-          this.$store.commit('messages/add', {isUser: false, message: 'Ups das habe ich nicht verstanden'})
-        }
-        await this.$nextTick()
-        this.$refs.messages.scrollTop = this.$refs.messages.scrollHeight
-        this.userText = ''
       }
     }
   }
