@@ -13,6 +13,7 @@
     <div class="border-t-2 border-gray-200 px-4 pt-4 mb-2 sm:mb-0">
       <div class="relative flex">
         <input type="text"
+               maxlength="300"
                placeholder="Dein Text"
                v-model="userText"
                v-on:keyup.enter="sendQuestion"
@@ -32,6 +33,7 @@
           </button>
         </div>
       </div>
+      <div v-show="showUserTextLength" class="mt-2 text-sm">{{userTextLength}}/300</div>
     </div>
   </div>
 </template>
@@ -48,6 +50,12 @@ export default {
   computed: {
     messages() {
       return this.$store.state.messages.messages
+    },
+    userTextLength() {
+      return this.userText.length
+    },
+    showUserTextLength() {
+      return this.userText.length > 150
     }
   },
   methods: {
