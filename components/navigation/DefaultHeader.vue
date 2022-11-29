@@ -1,6 +1,6 @@
 <template>
   <header class="fixed w-full">
-    <nav class="bg-white border-gray-200 py-2.5 dark:bg-gray-900">
+    <nav class="hidden lg:block bg-white border-gray-200 py-2.5 dark:bg-gray-900">
       <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
         <NuxtLink to="/" class="flex items-center">
           <img src="/chatbot.svg" class="h-6 mr-3 sm:h-9" alt="Climate Change Bot Logo"/>
@@ -25,6 +25,13 @@
             <header-button-nav route="/privacy" text="Datenschutz"></header-button-nav>
             <header-button-nav route="/contact" text="Kontakt"></header-button-nav>
           </ul>
+        </div>
+      </div>
+    </nav>
+    <nav class="lg:hidden bg-default-color py-2.5">
+      <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
+        <div class="flex pr-4">
+          <span class="self-center text-xl font-semibold whitespace-nowrap text-white">Home</span>
         </div>
       </div>
     </nav>

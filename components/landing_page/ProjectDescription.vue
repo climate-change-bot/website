@@ -4,9 +4,13 @@
       <div class="mr-auto place-self-center lg:col-span-7">
         <h1
           class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">
-          Der Chatbot zum Klimawandel</h1>
-        <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Hast du
-          Fragen zum Klimawandel? Dann bist du hier genau richtig! Der Climate Change Bot freut sich auf deine Fragen.</p>
+          Der Klimawandel Chatbot</h1>
+        <div class="flex justify-center mb-8 mt-6 lg:hidden">
+          <img src="/chatbot.svg" alt="ClimateChangeBot logo" class="h-60">
+        </div>
+        <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Möchtest du
+          mehr über den Klimawandel wissen? Dann bist du hier genau richtig! Der Climate Change Bot beantwortet deine
+          Fragen zu diesem wichtigen Thema.</p>
         <div class="space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
           <button
             @click="$router.push({name: 'chatbot'})"

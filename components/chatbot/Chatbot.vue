@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-white chatbot-container flex-1  sm:p-6 justify-between flex flex-col h-full border-solid border-2 rounded-md pt-20">
+    class="bg-white chatbot-container flex-1 sm:p-6 justify-between flex flex-col h-full md:border-solid md:border-2 md:rounded-md pt-20">
 
     <div id="messages"
          ref="messages"
@@ -13,18 +13,19 @@
     <div class="border-t-2 border-gray-200 px-4 pt-4 mb-2 sm:mb-0">
       <div class="relative flex">
         <input type="text"
+               autofocus
                maxlength="300"
                placeholder="Dein Text"
                v-model="userText"
                v-on:keyup.enter="sendQuestion"
                class="w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 pl-4 pr-32 bg-gray-200 rounded-md py-3">
-        <div class="absolute right-0 items-center inset-y-0 hidden sm:flex">
+        <div class="absolute right-0 items-center inset-y-0 flex">
           <button type="button"
                   @click="sendQuestion"
                   class="inline-flex items-center justify-center rounded-lg px-4 py-3 transition duration-500 ease-in-out text-white focus:outline-none"
                   :class="[userTextLength > 0 && !isSending ? 'bg-default-color hover:bg-default-color-dark': 'bg-slate-400']"
                   :disabled="userTextLength === 0 || isSending">
-            <span class="font-bold">Senden</span>
+            <span class="font-bold hidden sm:block">Senden</span>
             <svg xmlns="http://www.w3.org/2000/svg"
                  viewBox="0 0 20 20"
                  fill="currentColor"
@@ -93,10 +94,16 @@ export default {
 
 <style scoped>
 .chatbot-container {
-  max-height: 800px;
-  min-height: 400px;
-  height: 95%;
   width: 100%;
-  max-width: 500px;
+  height: 100%;
+  min-height: 400px;
+}
+
+@media screen and (min-width: 768px) {
+  .chatbot-container {
+    max-height: 800px;
+    height: 95%;
+    max-width: 500px;
+  }
 }
 </style>
