@@ -4,14 +4,18 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'ClimateChangeBot',
+    title: 'Climate Change Bot',
     htmlAttrs: {
       lang: 'de'
     },
     meta: [
       {charset: 'utf-8'},
       {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-      {hid: 'description', name: 'description', content: ''},
+      {hid: 'description', name: 'description', content: 'Der Climate Change Bot informiert dich über den Klimawandel. Damit du weisst was du tun kannst und weshalb der Klimawandel ein Problem ist'},
+      {hid: 'og:type', property: 'og:type', content: 'website'},
+      {hid: 'og:url', property: 'og:url', content: 'https://www.climate-change-bot.site/'},
+      {hid: 'og:site_name', property: 'og:site_name', content: 'Climate Change Bot'},
+      {hid: 'og:image', property: 'og:image', content: '/chatbot.svg'},
       {name: 'format-detection', content: 'telephone=no'}
     ],
     link: [
