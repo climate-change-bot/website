@@ -11,7 +11,11 @@ export default {
     meta: [
       {charset: 'utf-8'},
       {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-      {hid: 'description', name: 'description', content: 'Möchtest du mehr über den Klimawandel wissen und was du dagegen tun kannst? Dann bist du hier genau richtig! Der Climate Change Bot beantwortet deine Fragen zu diesem wichtigen Thema.'},
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Möchtest du mehr über den Klimawandel wissen und was du dagegen tun kannst? Dann bist du hier genau richtig! Der Climate Change Bot beantwortet deine Fragen zu diesem wichtigen Thema.'
+      },
       {hid: 'og:type', property: 'og:type', content: 'website'},
       {hid: 'og:url', property: 'og:url', content: 'https://www.climate-change-bot.site/'},
       {hid: 'og:site_name', property: 'og:site_name', content: 'Climate Change Bot'},
@@ -20,6 +24,13 @@ export default {
     ],
     link: [
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
+    ],
+    script: [
+      {
+        hid: 'matamo-opt-out',
+        src: 'https://climatechangebotsite.matomo.cloud/index.php?module=CoreAdminHome&action=optOutJS&divId=matomo-opt-out&language=auto&showIntro=1',
+        defer: true
+      }
     ],
     noscript: [{innerHTML: 'Diese Webseite benötigt JavaScript', body: true}]
   },
