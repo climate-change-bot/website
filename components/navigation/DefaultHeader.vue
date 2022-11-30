@@ -30,9 +30,34 @@
     </nav>
     <nav class="lg:hidden bg-default-color py-2.5">
       <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
-        <div class="flex pr-4">
-          <span class="self-center text-xl font-semibold whitespace-nowrap text-white">Home</span>
+        <div v-show="$route.name === 'index'" class="flex">
+          <span class="self-center text-xl font-semibold whitespace-nowrap text-white">Climate Change Bot</span>
         </div>
+        <div v-show="$route.name !== 'index'" class="flex">
+          <button type="button"
+                  class="text-gray-500 hover:text-gray-600 focus:text-gray-600 focus:outline-none pl-2 py-1"
+                  @click="$router.push({ path: '/' })">
+            <svg viewBox="0 0 24 24" class="h-6 w-6 fill-white">
+              <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="flex justify-between items-center">
+          <button type="button"
+                  class="text-gray-500 hover:text-gray-600 focus:text-gray-600 focus:outline-none pl-2 py-1"
+                  @click="$store.commit('header/set', !isOpen)">
+            <svg viewBox="0 0 24 24" class="h-6 w-6 fill-white">
+              <path
+                d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div v-show="isOpen" class="transition ease-in duration-200 flex-col mt-3 ml-4 flex">
+        <a href="/" :class="{'font-semibold': $route.name === 'index'}" class="text-white text-md pb-1.5">Startseite</a>
+        <a href="/chatbot" :class="{'font-semibold': $route.name === 'chatbot'}" class="text-white text-md pb-1.5">Chatbot</a>
+        <a href="/privacy" :class="{'font-semibold': $route.name === 'privacy'}" class="text-white text-md pb-1.5">Privatsphäre</a>
+        <a href="/contact" :class="{'font-semibold': $route.name === 'contact'}" class="text-white text-md pb-1.5">Kontakt</a>
       </div>
     </nav>
   </header>
@@ -44,7 +69,12 @@ import HeaderButtonNav from '~/components/navigation/HeaderButtonNav'
 
 export default Vue.extend({
   name: 'IndexPage',
-  components: {HeaderButtonNav}
+  components: {HeaderButtonNav},
+  computed: {
+    isOpen: function () {
+      return this.$store.state.header.isNavOpen
+    }
+  }
 })
 </script>
 

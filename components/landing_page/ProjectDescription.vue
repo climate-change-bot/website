@@ -9,8 +9,8 @@
           <img src="/chatbot.svg" alt="ClimateChangeBot logo" class="h-60">
         </div>
         <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Möchtest du
-          mehr über den Klimawandel wissen? Dann bist du hier genau richtig! Der Climate Change Bot beantwortet deine
-          Fragen zu diesem wichtigen Thema.</p>
+          mehr über den Klimawandel wissen und was du dagegen tun kannst? Dann bist du hier genau richtig! Der Climate
+          Change Bot beantwortet deine Fragen zu diesem wichtigen Thema.</p>
         <div class="space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
           <button
             @click="$router.push({name: 'chatbot'})"

@@ -1,8 +1,10 @@
 <template>
   <div>
     <default-header/>
-    <project-description/>
-    <master-thesis/>
+    <div @click="$store.commit('header/set', false)">
+      <project-description/>
+      <master-thesis/>
+    </div>
   </div>
 </template>
 

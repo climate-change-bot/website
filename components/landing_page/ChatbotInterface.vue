@@ -1,5 +1,6 @@
 <template>
-  <div class="md:bg-gray-50 h-full items-center flex justify-center chatbot-landing-page">
+  <div class="md:bg-gray-50 h-full items-center flex justify-center chatbot-landing-page"
+       @click="$store.commit('header/set', false)">
     <Chatbot/>
   </div>
 </template>
