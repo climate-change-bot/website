@@ -12,8 +12,8 @@
 <script>
 import DefaultHeader from '~/components/navigation/DefaultHeader'
 import DefaultFooter from '~/components/navigation/DefaultFooter'
-import ProjectDescription from '~/components/landing_page/ProjectDescription'
-import MasterThesis from '~/components/landing_page/MasterThesis'
+import ProjectDescription from '@/components/landing_page/ProjectSummary'
+import MasterThesis from '@/components/landing_page/ProjectDescription'
 
 export default {
   name: 'LandingPage',
