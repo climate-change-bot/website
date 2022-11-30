@@ -68,7 +68,7 @@ import Vue from 'vue'
 import HeaderButtonNav from '~/components/navigation/HeaderButtonNav'
 
 export default Vue.extend({
-  name: 'IndexPage',
+  name: 'DefaultHeader',
   components: {HeaderButtonNav},
   computed: {
     isOpen: function () {

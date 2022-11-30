@@ -4,18 +4,20 @@
     <div @click="$store.commit('header/set', false)">
       <project-description/>
       <master-thesis/>
+      <default-footer/>
     </div>
   </div>
 </template>
 
 <script>
 import DefaultHeader from '~/components/navigation/DefaultHeader'
+import DefaultFooter from '~/components/navigation/DefaultFooter'
 import ProjectDescription from '~/components/landing_page/ProjectDescription'
 import MasterThesis from '~/components/landing_page/MasterThesis'
 
 export default {
   name: 'LandingPage',
-  components: {DefaultHeader, MasterThesis, ProjectDescription}
+  components: {DefaultHeader, DefaultFooter, MasterThesis, ProjectDescription}
 }
 </script>
 
