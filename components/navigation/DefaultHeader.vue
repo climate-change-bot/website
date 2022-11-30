@@ -7,14 +7,14 @@
           <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Climate Change Bot</span>
         </NuxtLink>
         <div class="flex items-center lg:order-2">
-          <div class="hidden mt-2 mr-4 sm:inline-block">
+          <div class="hidden mt-0 mr-4 sm:inline-block">
             <a href="https://www.linkedin.com/in/roger-waldvogel/" target="_blank">
-              <img src="/linkedin.png" class="h-7">
+              <img src="/linkedin.png" class="h-6">
             </a>
           </div>
-          <div class="hidden mt-2 mr-4 sm:inline-block">
+          <div class="hidden mt-0 mr-4 sm:inline-block">
             <a href="https://github.com/climate-change-bot" target="_blank">
-              <img src="/github.png" class="h-7">
+              <img src="/github.png" class="h-6">
             </a>
           </div>
         </div>
