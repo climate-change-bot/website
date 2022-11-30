@@ -32,6 +32,17 @@ import DefaultHeader from '~/components/navigation/DefaultHeader'
 
 export default Vue.extend({
   name: 'Privacy',
-  components: {DefaultHeader}
+  components: {DefaultHeader},
+  head() {
+    return {
+      script: [
+        {
+          hid: 'matamo-opt-out',
+          src: 'https://climatechangebotsite.matomo.cloud/index.php?module=CoreAdminHome&action=optOutJS&divId=matomo-opt-out&language=auto&showIntro=1',
+          defer: true
+        }
+      ]
+    }
+  }
 })
 </script>

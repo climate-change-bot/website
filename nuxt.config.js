@@ -25,13 +25,6 @@ export default {
     link: [
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
     ],
-    script: [
-      {
-        hid: 'matamo-opt-out',
-        src: 'https://climatechangebotsite.matomo.cloud/index.php?module=CoreAdminHome&action=optOutJS&divId=matomo-opt-out&language=auto&showIntro=1',
-        defer: true
-      }
-    ],
     noscript: [{innerHTML: 'Diese Webseite benötigt JavaScript', body: true}]
   },
 
