@@ -40,8 +40,7 @@ export default Vue.extend({
       script: [
         {
           hid: 'matamo-opt-out',
-          src: 'https://climatechangebotsite.matomo.cloud/index.php?module=CoreAdminHome&action=optOutJS&divId=matomo-opt-out&language=auto&showIntro=1',
-          defer: true
+          src: '/scripts/matomo.js'
         }
       ]
     }
