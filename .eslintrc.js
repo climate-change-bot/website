@@ -16,5 +16,6 @@ module.exports = {
     'vue/html-closing-bracket-spacing': 'off',
     'object-curly-spacing': 'off',
     'space-before-function-paren': 'off'
-  }
+  },
+  ignorePatterns: ['matomo.js']
 }
