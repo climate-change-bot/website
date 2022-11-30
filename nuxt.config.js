@@ -11,7 +11,7 @@ export default {
     meta: [
       {charset: 'utf-8'},
       {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-      {hid: 'description', name: 'description', content: 'Der Climate Change Bot informiert dich über den Klimawandel. Damit du weisst was du tun kannst und weshalb der Klimawandel ein Problem ist'},
+      {hid: 'description', name: 'description', content: 'Möchtest du mehr über den Klimawandel wissen und was du dagegen tun kannst? Dann bist du hier genau richtig! Der Climate Change Bot beantwortet deine Fragen zu diesem wichtigen Thema.'},
       {hid: 'og:type', property: 'og:type', content: 'website'},
       {hid: 'og:url', property: 'og:url', content: 'https://www.climate-change-bot.site/'},
       {hid: 'og:site_name', property: 'og:site_name', content: 'Climate Change Bot'},

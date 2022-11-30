@@ -11,10 +11,10 @@
         <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Möchtest du
           mehr über den Klimawandel wissen und was du dagegen tun kannst? Dann bist du hier genau richtig! Der Climate
           Change Bot beantwortet deine Fragen zu diesem wichtigen Thema.</p>
-        <div class="space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
+        <div class="space-y-4 flex sm:space-y-0 sm:space-x-4">
           <button
             @click="$router.push({name: 'chatbot'})"
-            class="bg-default-color hover:bg-default-color-dark text-white font-bold py-2 px-4 rounded">
+            class="bg-default-color mx-auto sm:mx-0 hover:bg-default-color-dark text-white font-bold py-2 px-16 sm:px-4 rounded">
             Los geht's
           </button>
         </div>
