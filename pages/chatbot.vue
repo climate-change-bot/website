@@ -2,6 +2,7 @@
   <div class="h-full">
     <default-header/>
     <chatbot-interface/>
+    <Consent/>
   </div>
 </template>
 
@@ -9,10 +10,11 @@
 import Vue from 'vue'
 import DefaultHeader from '~/components/navigation/DefaultHeader'
 import ChatbotInterface from '~/components/landing_page/ChatbotInterface'
+import Consent from '@/components/consent/Consent.vue'
 
 export default Vue.extend({
   name: 'Chatbot',
-  components: {DefaultHeader, ChatbotInterface},
+  components: {DefaultHeader, ChatbotInterface, Consent},
   async fetch() {
     if (this.$store.state.messages.messages.length === 0) {
       const message = {

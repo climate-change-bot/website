@@ -32,15 +32,17 @@
         </div>
       </div>
     </section>
+    <Consent/>
   </div>
 </template>
 
 <script lang="js">
 import Vue from 'vue'
 import DefaultHeader from '~/components/navigation/DefaultHeader'
+import Consent from '@/components/consent/Consent.vue'
 
 export default Vue.extend({
   name: 'Contact',
-  components: {DefaultHeader}
+  components: {DefaultHeader, Consent}
 })
 </script>
