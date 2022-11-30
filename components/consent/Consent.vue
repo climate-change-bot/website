@@ -1,6 +1,6 @@
 <template>
   <div>
-    <no-ssr>
+    <client-only>
       <div v-if="showInfo" class="fixed bg-[#212121] z-[100] bottom-0 left-0 right-0 py-4 opacity-90">
         <div class="mx-auto lg:max-w-2xl flex">
           <div class="text-white">
@@ -18,7 +18,7 @@
           </div>
         </div>
       </div>
-    </no-ssr>
+    </client-only>
   </div>
 </template>
 
