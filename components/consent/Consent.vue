@@ -2,7 +2,7 @@
   <div>
     <client-only>
       <div v-if="showInfo" class="fixed bg-[#212121] z-[100] bottom-0 left-0 right-0 py-4 opacity-90">
-        <div class="mx-auto lg:max-w-2xl flex">
+        <div class="mx-auto lg:max-w-2xl flex px-2">
           <div class="text-white">
             <span>Diese Webseite speichert Daten von dir. Indem du die Webseite weiterhin nutzt, stimmst du </span>
             <nuxt-link :to="{name: 'privacy'}" class="font-bold">
