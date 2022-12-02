@@ -8,6 +8,11 @@
         </NuxtLink>
         <div class="flex items-center lg:order-2">
           <div class="hidden mt-0 mr-4 sm:inline-block">
+            <a href="https://tux.social/@roger_waldvogel" target="_blank">
+              <img src="/mastodon.svg" class="h-6">
+            </a>
+          </div>
+          <div class="hidden mt-0 mr-4 sm:inline-block">
             <a href="https://www.linkedin.com/in/roger-waldvogel/" target="_blank">
               <img src="/linkedin.png" class="h-6">
             </a>
