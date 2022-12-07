@@ -25,6 +25,12 @@ export default {
     link: [
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
     ],
+    script: [
+      {
+        hid: 'matamo-opt-out',
+        src: '/scripts/matomo.js'
+      }
+    ],
     noscript: [{innerHTML: 'Diese Webseite benötigt JavaScript', body: true}]
   },
 

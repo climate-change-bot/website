@@ -35,14 +35,9 @@ import Consent from '@/components/consent/Consent.vue'
 export default Vue.extend({
   name: 'Privacy',
   components: {DefaultHeader, Consent},
-  head() {
-    return {
-      script: [
-        {
-          hid: 'matamo-opt-out',
-          src: '/scripts/matomo.js'
-        }
-      ]
+  mounted() {
+    if (document.initMatomoOptOut) {
+      document.initMatomoOptOut()
     }
   }
 })

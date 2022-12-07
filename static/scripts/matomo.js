@@ -16,10 +16,10 @@ var settings = {
   "YouAreOptedOut": "Ihr Besuch dieser Webseite wird aktuell von der Matomo Webanalyse nicht erfasst.",
   "CheckToOptIn": "Diese Checkbox aktivieren f\u00fcr Opt-In."
 };
-document.addEventListener('DOMContentLoaded', function () {
+document.initMatomoOptOut = function () {
   window.MatomoConsent.init(settings.useSecureCookies, settings.cookiePath, settings.cookieDomain, settings.cookieSameSite);
   showContent(window.MatomoConsent.hasConsent());
-});
+};
 
 
 function showContent(consent, errorMessage = null, useTracker = false) {
