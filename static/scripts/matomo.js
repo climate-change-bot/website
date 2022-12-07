@@ -90,12 +90,16 @@ window.MatomoConsent = {
     }
   },
   hasConsent: function () {
-    var value = this.getCookie(this.CONSENT_COOKIE_NAME);
-    if (this.getCookie(this.CONSENT_REMOVED_COOKIE_NAME) && value) {
+    var consentCookie = this.getCookie(this.CONSENT_COOKIE_NAME);
+    var removedCookie = this.getCookie(this.CONSENT_REMOVED_COOKIE_NAME);
+    if (!consentCookie && !removedCookie) {
+      return true; // No cookies set, so opted in
+    }
+    if (removedCookie && consentCookie) {
       this.setCookie(this.CONSENT_COOKIE_NAME, '', -129600000);
       return false;
     }
-    return (value || value !== 0);
+    return (consentCookie || consentCookie !== 0);
   },
   consentGiven: function () {
     this.setCookie(this.CONSENT_REMOVED_COOKIE_NAME, '', -129600000);
