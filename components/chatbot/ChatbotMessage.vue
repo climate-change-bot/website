@@ -11,7 +11,8 @@
       <div class="flex items-end justify-end">
         <div class="flex flex-col space-y-2 text-base max-w-xs mx-2 order-1 items-end">
           <div><span
-            class="px-4 py-2 rounded-lg inline-block rounded-br-none bg-default-color text-white ">{{ message }}</span>
+            class="px-4 py-2 rounded-lg inline-block rounded-br-none bg-default-color text-white"
+            v-html="htmlMessage"></span>
           </div>
         </div>
         <img src="/chatbot.svg" alt="ClimateChangeBot Profile" class="w-8 h-8 rounded-full order-2">
@@ -21,6 +22,13 @@
 </template>
 
 <script>
+import showdown from 'showdown'
+
+const converter = new showdown.Converter({
+  openLinksInNewWindow: true,
+  emoji: true
+})
+
 export default {
   name: 'ChatbotMessage',
   props: {
@@ -29,10 +37,18 @@ export default {
       default: ''
     },
     isUser: Boolean
+  },
+  computed: {
+    htmlMessage: function () {
+      return converter.makeHtml(this.message)
+    }
   }
 }
 </script>
 
-<style scoped>
-
+<style>
+.chat-message a {
+  text-decoration: underline;
+  font-weight: bold;
+}
 </style>
