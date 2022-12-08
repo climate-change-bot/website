@@ -15,7 +15,7 @@
             v-html="htmlMessage"></span>
           </div>
         </div>
-        <img src="/chatbot.svg" alt="ClimateChangeBot Profile" class="w-8 h-8 rounded-full order-2">
+        <img src="/chatbot.svg" alt="ClimateChangeBot Profile" class="w-8 h-8 order-2">
       </div>
     </div>
   </div>
