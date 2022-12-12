@@ -23,8 +23,8 @@
           <button type="button"
                   @click="sendQuestion"
                   class="inline-flex items-center justify-center rounded-lg px-4 py-3 transition duration-500 ease-in-out text-white focus:outline-none"
-                  :class="[userTextLength > 0 && !isSending ? 'bg-default-color hover:bg-default-color-dark': 'bg-slate-400']"
-                  :disabled="userTextLength === 0 || isSending">
+                  :class="[isValidUserText && !isSending ? 'bg-default-color hover:bg-default-color-dark': 'bg-slate-400']"
+                  :disabled="!isValidUserText || isSending">
             <span class="font-bold hidden sm:block">Senden</span>
             <svg xmlns="http://www.w3.org/2000/svg"
                  viewBox="0 0 20 20"
@@ -36,7 +36,7 @@
           </button>
         </div>
       </div>
-      <div v-show="showUserTextLength" class="mt-2 text-sm">{{ userTextLength }}/300</div>
+      <div v-show="showUserTextLength" class="mt-2 text-sm">{{ userText.length }}/300</div>
     </div>
   </div>
 </template>
@@ -54,8 +54,8 @@ export default {
     messages() {
       return this.$store.state.messages.messages
     },
-    userTextLength() {
-      return this.userText.length
+    isValidUserText() {
+      return this.userText.trim().length > 0
     },
     showUserTextLength() {
       return this.userText.length > 150
