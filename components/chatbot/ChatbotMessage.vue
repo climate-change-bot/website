@@ -1,7 +1,7 @@
 <template>
   <div class="chat-message">
     <div v-if="isUser" class="flex items-end">
-      <div class="flex flex-col space-y-2 text-base max-w-xs mx-2 order-2 items-start">
+      <div class="flex flex-col space-y-2 text-base mx-2 order-2 items-start chat-message-container">
         <div><span
           class="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">{{ message }}</span>
         </div>
@@ -9,7 +9,7 @@
     </div>
     <div v-else class="chat-message">
       <div class="flex items-end justify-end">
-        <div class="flex flex-col space-y-2 text-base max-w-xs mx-2 order-1 items-end">
+        <div class="flex flex-col space-y-2 text-base mx-2 order-1 items-end chat-message-container">
           <div><span
             class="px-4 py-2 rounded-lg inline-block rounded-br-none bg-default-color text-white"
             v-html="htmlMessage"></span>
@@ -50,5 +50,9 @@ export default {
 .chat-message a {
   text-decoration: underline;
   font-weight: bold;
+}
+
+.chat-message-container {
+  max-width: 80%;
 }
 </style>

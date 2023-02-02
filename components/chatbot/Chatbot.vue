@@ -103,7 +103,7 @@ export default {
   .chatbot-container {
     max-height: 800px;
     height: 95%;
-    max-width: 500px;
+    max-width: 700px;
   }
 }
 </style>
