@@ -8,7 +8,12 @@
       <ChatbotMessage :is-user="message.isUser"
                       :message="message.message"
                       :key="message.key"
-                      v-for="message in messages"></ChatbotMessage>
+                      v-for="message in messages">
+      </ChatbotMessage>
+      <ChatbotMessage v-show="isSending"
+                      :is-loading=true
+                      :is-user=false>
+      </ChatbotMessage>
     </div>
     <div class="border-t-2 border-gray-200 px-4 pt-4 mb-2 sm:mb-0">
       <div class="relative flex">
@@ -67,6 +72,9 @@ export default {
         try {
           this.isSending = true
           this.$store.commit('messages/add', {isUser: true, message: this.userText})
+          await this.$nextTick()
+          this.$refs.messages.scrollTop = this.$refs.messages.scrollHeight
+
           const response = await this.$axios.$post('api/messages', {
             sender: this.$store.state.uuid.uuid,
             message: this.userText
