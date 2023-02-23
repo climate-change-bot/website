@@ -10,7 +10,7 @@
             <div class="flex justify-center mb-8 mt-6 lg:hidden">
               <img src="/climate_skinny.jpg" alt="climate change skinny" loading="lazy">
             </div>
-            <p class="mb-8 font-light lg:text-xl">Wir haben nicht mehr viel Zeit um zumindest die
+            <p class="mb-8 font-light lg:text-xl">Wir haben nicht mehr viel Zeit um die
               Folgen der Klimaerwärmung zu begrenzen. Jedoch ist der Klimawandel ein komplexes Thema mit vielen
               Facetten. Dieses Projekt soll mit einem interaktiven Ansatz dazu beitragen, dass die Probleme besser
               verstanden und Lösungen aufgezeigt werden.</p>
@@ -32,8 +32,8 @@
               <img src="/plant.jpg" alt="Women holding small plant" loading="lazy">
             </div>
             <p class="mb-8 font-light lg:text-xl">Der Chatbot ist noch eine kleine Pflanze, welche erst vor kurzem das
-              Licht der Welt erblickt hat. Jedes mal wenn du den Climate Change Bot verwendest, trägst du dazu bei das
-              dieser ein wenig wachsen kann. Zudem kannst du das Wachstum fördern in dem du deine Freunden auf dieses
+              Licht der Welt erblickt hat. Jedes Mal wenn du den Climate Change Bot verwendest trägst du dazu bei, dass
+              dieser ein wenig wachsen kann. Zudem kannst du das Wachstum fördern, in dem du deine Freunde auf dieses
               Projekt aufmerksam machst. Je mehr Leute den Chatbot benützen, desto besser wird er.</p>
           </div>
         </div>

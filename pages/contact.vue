@@ -16,11 +16,10 @@
             href="https://www.hslu.ch/en/lucerne-school-of-business/degree-programmes/master/applied-information-and-data-science/"
             target="_blank"
             class="font-semibold">Information
-            and Data Science</a> an der Hochschule Luzern entwickelt. Falls du Fragen, Anmerkungen oder interesse an
+            and Data Science</a> an der Hochschule Luzern entwickelt. Falls du Fragen, Anmerkungen oder Interesse an
             einer Zusammenarbeit hast, freue ich mich auf deine Kontaktaufnahme.
           </p>
           <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-            E-Mail: <br>
             <a href="mailto:roger.waldvogel@stud.hslu.ch">roger.waldvogel@stud.hslu.ch</a>
           </p>
         </div>
