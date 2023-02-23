@@ -10,7 +10,7 @@
                       :key="message.key"
                       v-for="message in messages">
       </ChatbotMessage>
-      <ChatbotMessage v-show="isSending"
+      <ChatbotMessage v-show="isSending || noMessages"
                       :is-loading=true
                       :is-user=false>
       </ChatbotMessage>
@@ -59,6 +59,9 @@ export default {
     messages() {
       return this.$store.state.messages.messages
     },
+    noMessages() {
+      return this.$store.state.messages.messages.length === 0
+    },
     isValidUserText() {
       return this.userText.trim().length > 0
     },
@@ -69,15 +72,17 @@ export default {
   methods: {
     async sendQuestion() {
       if (this.userText.length > 1) {
+        const userTextToSend = this.userText
         try {
           this.isSending = true
-          this.$store.commit('messages/add', {isUser: true, message: this.userText})
+          this.userText = ''
+          this.$store.commit('messages/add', {isUser: true, message: userTextToSend})
           await this.$nextTick()
           this.$refs.messages.scrollTop = this.$refs.messages.scrollHeight
 
           const response = await this.$axios.$post('api/messages', {
             sender: this.$store.state.uuid.uuid,
-            message: this.userText
+            message: userTextToSend
           })
           for (const chatbotEntry of response) {
             this.$store.commit('messages/add', {isUser: false, message: chatbotEntry.text})
@@ -87,9 +92,8 @@ export default {
           }
           await this.$nextTick()
           this.$refs.messages.scrollTop = this.$refs.messages.scrollHeight
-          this.userText = ''
         } catch (error) {
-          this.userText = ''
+          this.userText = userTextToSend
           this.$store.commit('messages/add', {isUser: false, message: 'Ups, da ist ein Fehler aufgetreten'})
         } finally {
           this.isSending = false
