@@ -6,12 +6,14 @@
          ref="messages"
          class="flex flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
       <ChatbotMessage :is-user="message.isUser"
+                      :is-open-ai="message.isOpenai"
                       :message="message.message"
                       :key="message.key"
                       v-for="message in messages">
       </ChatbotMessage>
       <ChatbotMessage v-show="isSending || noMessages"
                       :is-loading=true
+                      :is-open-ai="false"
                       :is-user=false>
       </ChatbotMessage>
     </div>
@@ -85,7 +87,15 @@ export default {
             message: userTextToSend
           })
           for (const chatbotEntry of response) {
-            this.$store.commit('messages/add', {isUser: false, message: chatbotEntry.text})
+            if (chatbotEntry.custom && chatbotEntry.custom.openai) {
+              this.$store.commit('messages/add', {
+                isUser: false, isOpenai: true, message: chatbotEntry.custom.text
+              })
+            } else {
+              this.$store.commit('messages/add', {
+                isUser: false, isOpenai: false, message: chatbotEntry.text
+              })
+            }
           }
           if (response.length === 0) {
             this.$store.commit('messages/add', {isUser: false, message: 'Ups das habe ich nicht verstanden'})
