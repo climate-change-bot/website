@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-white chatbot-container flex-1 sm:p-6 justify-between flex flex-col h-full md:border-solid md:border-2 md:rounded-md pt-20">
+    class="bg-white chatbot-container flex-1 sm:p-6 justify-between flex flex-col h-full md:border-solid md:border-2 md:rounded-md pt-3 md:pt-6">
 
     <div id="messages"
          ref="messages"
