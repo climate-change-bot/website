@@ -30,6 +30,11 @@ export default Vue.extend({
       }
     }
   },
-  fetchOnServer: false
+  fetchOnServer: false,
+  mounted() {
+    if (this.$matomo && this.$matomo.enableHeartBeatTimer) {
+      this.$matomo.enableHeartBeatTimer(10)
+    }
+  }
 })
 </script>

@@ -21,11 +21,6 @@ document.initMatomoOptOut = function () {
   showContent(window.MatomoConsent.hasConsent());
 };
 
-window.addEventListener('load', function () {
-  var _paq = window._paq = window._paq || [];
-  _paq.push(['enableHeartBeatTimer']);
-})
-
 function showContent(consent, errorMessage = null, useTracker = false) {
 
   var errorBlock = '<p style="color: red; font-weight: bold;">';

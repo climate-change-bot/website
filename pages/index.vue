@@ -12,6 +12,11 @@ import Consent from '@/components/consent/Consent.vue'
 
 export default Vue.extend({
   name: 'IndexPage',
-  components: {LandingPage, Consent}
+  components: {LandingPage, Consent},
+  mounted() {
+    if (this.$matomo && this.$matomo.enableHeartBeatTimer) {
+      this.$matomo.enableHeartBeatTimer(10)
+    }
+  }
 })
 </script>
