@@ -42,6 +42,9 @@ import Consent from '@/components/consent/Consent.vue'
 
 export default Vue.extend({
   name: 'Contact',
-  components: {DefaultHeader, Consent}
+  components: {DefaultHeader, Consent},
+  matomo() {
+    this.enableHeartBeatTimer(10)
+  }
 })
 </script>

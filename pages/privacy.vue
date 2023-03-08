@@ -39,6 +39,9 @@ export default Vue.extend({
     if (document.initMatomoOptOut) {
       document.initMatomoOptOut()
     }
+  },
+  matomo() {
+    this.enableHeartBeatTimer(10)
   }
 })
 </script>
