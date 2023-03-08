@@ -21,9 +21,6 @@ document.initMatomoOptOut = function () {
   showContent(window.MatomoConsent.hasConsent());
 };
 
-// accurately measure the time spent in the visit
-_paq.push(['enableHeartBeatTimer']);
-
 function showContent(consent, errorMessage = null, useTracker = false) {
 
   var errorBlock = '<p style="color: red; font-weight: bold;">';
