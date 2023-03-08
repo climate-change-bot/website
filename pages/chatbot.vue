@@ -31,7 +31,7 @@ export default Vue.extend({
     }
   },
   fetchOnServer: false,
-  matomo(from, to, store) {
+  matomo() {
     this.enableHeartBeatTimer(10)
   }
 })

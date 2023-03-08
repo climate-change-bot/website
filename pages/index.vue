@@ -13,7 +13,7 @@ import Consent from '@/components/consent/Consent.vue'
 export default Vue.extend({
   name: 'IndexPage',
   components: {LandingPage, Consent},
-  matomo(from, to, store) {
+  matomo() {
     this.enableHeartBeatTimer(10)
   }
 })
