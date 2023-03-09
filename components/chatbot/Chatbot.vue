@@ -8,8 +8,13 @@
       <ChatbotMessage :is-user="message.isUser"
                       :is-open-ai="message.isOpenai"
                       :message="message.message"
+                      :message-id="message.key"
+                      :buttons="message.buttons"
+                      :is-last-message="messages.length - 1 === index"
+                      :selected-button-value="message.selectedButtonValue"
+                      @send-button-value="sendQuestion(message.selectedButtonValue, false)"
                       :key="message.key"
-                      v-for="message in messages">
+                      v-for="(message, index) in messages">
       </ChatbotMessage>
       <ChatbotMessage v-show="isSending || noMessages"
                       :is-loading=true
@@ -22,16 +27,17 @@
         <input type="text"
                autofocus
                maxlength="300"
-               placeholder="Dein Text"
+               :placeholder="disableTextInput ? '' : 'Dein Text'"
                v-model="userText"
-               v-on:keyup.enter="sendQuestion"
+               :disabled="disableTextInput"
+               v-on:keyup.enter="sendQuestion(userText, true)"
                class="w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 pl-4 pr-32 bg-gray-200 rounded-md py-3">
         <div class="absolute right-0 items-center inset-y-0 flex">
           <button type="button"
-                  @click="sendQuestion"
+                  @click="sendQuestion(userText, true)"
                   class="inline-flex items-center justify-center rounded-lg px-4 py-3 transition duration-500 ease-in-out text-white focus:outline-none"
-                  :class="[isValidUserText && !isSending ? 'bg-default-color hover:bg-default-color-dark': 'bg-slate-400']"
-                  :disabled="!isValidUserText || isSending">
+                  :class="[disableButton ? 'bg-slate-400': 'bg-default-color hover:bg-default-color-dark']"
+                  :disabled="disableButton">
             <span class="font-bold hidden sm:block">Senden</span>
             <svg xmlns="http://www.w3.org/2000/svg"
                  viewBox="0 0 20 20"
@@ -64,27 +70,37 @@ export default {
     noMessages() {
       return this.$store.state.messages.messages.length === 0
     },
+    lastChatbotMessageHasButtons() {
+      return this.$store.state.messages.lastChatbotMessageHasButtons
+    },
     isValidUserText() {
       return this.userText.trim().length > 0
     },
     showUserTextLength() {
       return this.userText.length > 150
+    },
+    disableTextInput() {
+      return this.isSending || this.lastChatbotMessageHasButtons
+    },
+    disableButton() {
+      return !!(!this.isValidUserText || this.isSending || this.lastChatbotMessageHasButtons);
     }
   },
   methods: {
-    async sendQuestion() {
-      if (this.userText.length > 1) {
-        const userTextToSend = this.userText
+    async sendQuestion(text, showUserMessage) {
+      if (typeof text == 'string' && text.length > 1) {
         try {
           this.isSending = true
           this.userText = ''
-          this.$store.commit('messages/add', {isUser: true, message: userTextToSend})
+          if (showUserMessage) {
+            this.$store.commit('messages/add', {isUser: true, message: text})
+          }
           await this.$nextTick()
           this.$refs.messages.scrollTop = this.$refs.messages.scrollHeight
 
           const response = await this.$axios.$post('api/messages', {
             sender: this.$store.state.uuid.uuid,
-            message: userTextToSend
+            message: text
           })
           for (const chatbotEntry of response) {
             if (chatbotEntry.custom && chatbotEntry.custom.openai) {
@@ -93,7 +109,7 @@ export default {
               })
             } else {
               this.$store.commit('messages/add', {
-                isUser: false, isOpenai: false, message: chatbotEntry.text
+                isUser: false, isOpenai: false, message: chatbotEntry.text, buttons: chatbotEntry.buttons
               })
             }
           }
@@ -103,7 +119,7 @@ export default {
           await this.$nextTick()
           this.$refs.messages.scrollTop = this.$refs.messages.scrollHeight
         } catch (error) {
-          this.userText = userTextToSend
+          this.userText = text
           this.$store.commit('messages/add', {isUser: false, message: 'Ups, da ist ein Fehler aufgetreten'})
         } finally {
           this.isSending = false

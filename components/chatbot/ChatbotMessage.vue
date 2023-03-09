@@ -14,8 +14,27 @@
         <div class="flex flex-col space-y-2 text-base mx-2 order-1 items-end chat-message-container">
           <div>
             <div v-if="!isLoading && !isOpenAi"
-                 class="px-4 py-2 rounded-lg inline-block rounded-br-none bg-default-color text-white"
-                 v-html="htmlMessage"></div>
+                 class="px-4 py-2 rounded-lg inline-block rounded-br-none bg-default-color text-white">
+              <div v-html="htmlMessage"></div>
+              <div v-if="hasButtons">
+                <fieldset>
+                  <div v-for="button in buttons">
+                    <input type="radio" :id="button.payload" :value="button.payload" name="chatbot_buttons"
+                           :disabled="!isLastMessage"
+                           @change="changeButtonValue($event, messageId)"/>
+                    <label :for="button.payload">{{ button.title }}</label>
+                  </div>
+                </fieldset>
+                <button v-if="isLastMessage"
+                        :disabled="!selectedButtonValue"
+                        type="button"
+                        class="inline-flex items-center justify-center rounded-lg px-4 py-3 transition duration-500 ease-in-out text-white focus:outline-none"
+                        :class="[!selectedButtonValue ? 'bg-slate-400': 'bg-default-color hover:bg-default-color-dark']"
+                        @click="$emit('send-button-value')">
+                  Senden
+                </button>
+              </div>
+            </div>
             <div v-else-if="!isLoading && isOpenAi"
                  class="px-4 py-2 rounded-lg inline-block rounded-br-none bg-default-color text-white">
               <div v-html="htmlMessage"></div>
@@ -64,11 +83,27 @@ export default {
   name: 'ChatbotMessage',
   components: {Dropdown},
   props: {
+    messageId: {
+      type: Number,
+      default: 0
+    },
     message: {
       type: String,
       default: ''
     },
+    buttons: {
+      type: Array,
+      default: null
+    },
     isLoading: {
+      type: Boolean,
+      default: false
+    },
+    selectedButtonValue: {
+      type: String,
+      default: ''
+    },
+    isLastMessage: {
       type: Boolean,
       default: false
     },
@@ -78,6 +113,15 @@ export default {
   computed: {
     htmlMessage: function () {
       return converter.makeHtml(this.message)
+    },
+    hasButtons: function () {
+      return Array.isArray(this.buttons)
+    }
+  },
+  methods: {
+    changeButtonValue(event, messageId) {
+      const value = event.target.value
+      this.$store.commit('messages/setSelectedButtonValue', {value, messageId})
     }
   }
 }
