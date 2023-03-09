@@ -14,18 +14,27 @@
         <div class="flex flex-col space-y-2 text-base mx-2 order-1 items-end chat-message-container">
           <div>
             <div v-if="!isLoading && !isOpenAi"
-                 class="px-4 py-2 rounded-lg inline-block rounded-br-none bg-default-color text-white">
-              <div v-html="htmlMessage"></div>
-              <div v-if="hasButtons">
-                <fieldset>
-                  <div v-for="button in buttons" :key="button.payload">
+                 class="inline-block text-white">
+              <div class="rounded-lg rounded-br-none px-4 py-2 bg-default-color"
+                   :class="[hasButtons ? 'rounded-bl-none' : '']"
+                   v-html="htmlMessage"></div>
+              <div class="px-4 py-2 rounded-bl border-solid border border-default-color text-black"
+                   v-if="hasButtons">
+                <fieldset class="py-2" :id="messageId">
+                  <div v-for="button in buttons" :key="button.payload"
+                       class="flex items-center mr-4 mb-4">
                     <input type="radio"
+                           class="hidden"
                            :id="button.payload"
                            :value="button.payload"
-                           name="chatbot_buttons"
+                           :name="messageId"
                            :disabled="!isLastMessage"
                            @change="changeButtonValue($event, messageId)"/>
-                    <label :for="button.payload">{{ button.title }}</label>
+                    <label class="flex items-center cursor-pointer"
+                           :for="button.payload">
+                      <span class="w-6 h-6 block mr-4 rounded-full border border-grey flex-none"></span>
+                      {{ button.title }}
+                    </label>
                   </div>
                 </fieldset>
                 <button v-if="isLastMessage"
@@ -194,5 +203,32 @@ export default {
 .chatbot-message-info-icon {
   width: 18px;
   height: 18px;
+}
+
+input[type="radio"]:disabled + label span {
+  cursor: default;
+}
+
+input[type="radio"]:disabled + label {
+  cursor: default;
+}
+
+input[type="radio"]:enabled + label span {
+  transition: background .2s,
+  transform .2s;
+}
+
+input[type="radio"]:enabled + label span:hover,
+input[type="radio"]:enabled + label:hover span {
+  transform: scale(1.2);
+}
+
+input[type="radio"]:checked + label span {
+  background-color: #2e7d32;
+  box-shadow: 0 0 0 2px white inset;
+}
+
+input[type="radio"]:checked + label {
+  color: #2e7d32;
 }
 </style>
