@@ -83,12 +83,12 @@ export default {
       return this.isSending || this.lastChatbotMessageHasButtons
     },
     disableButton() {
-      return !!(!this.isValidUserText || this.isSending || this.lastChatbotMessageHasButtons);
+      return !!(!this.isValidUserText || this.isSending || this.lastChatbotMessageHasButtons)
     }
   },
   methods: {
     async sendQuestion(text, showUserMessage) {
-      if (typeof text == 'string' && text.length > 1) {
+      if (typeof text === 'string' && text.length > 1) {
         try {
           this.isSending = true
           this.userText = ''

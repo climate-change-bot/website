@@ -18,8 +18,11 @@
               <div v-html="htmlMessage"></div>
               <div v-if="hasButtons">
                 <fieldset>
-                  <div v-for="button in buttons">
-                    <input type="radio" :id="button.payload" :value="button.payload" name="chatbot_buttons"
+                  <div v-for="button in buttons" :key="button.payload">
+                    <input type="radio"
+                           :id="button.payload"
+                           :value="button.payload"
+                           name="chatbot_buttons"
                            :disabled="!isLastMessage"
                            @change="changeButtonValue($event, messageId)"/>
                     <label :for="button.payload">{{ button.title }}</label>
