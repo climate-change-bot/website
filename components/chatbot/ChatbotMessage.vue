@@ -21,7 +21,8 @@
               <div class="px-4 py-2 rounded-bl border-solid border border-default-color text-black"
                    v-if="hasButtons">
                 <fieldset class="py-2" :id="messageId">
-                  <div v-for="button in buttons" :key="button.payload"
+                  <div v-for="button in buttons"
+                       :key="button.payload"
                        class="flex items-center mr-4 mb-4">
                     <input type="radio"
                            class="hidden"
