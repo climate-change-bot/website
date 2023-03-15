@@ -31,6 +31,7 @@
                v-model="userText"
                :disabled="disableTextInput"
                v-on:keyup.enter="sendQuestion(userText, true)"
+               @input="validateInput"
                class="w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 pl-4 pr-32 bg-gray-200 rounded-md py-3">
         <div class="absolute right-0 items-center inset-y-0 flex">
           <button type="button"
@@ -48,8 +49,10 @@
             </svg>
           </button>
         </div>
-      </div>
+        </div>
       <div v-show="showUserTextLength" class="mt-2 text-sm">{{ userText.length }}/300</div>
+      <div v-show="invalidCharacter" class="mt-2 text-sm text-red-400"> Ungültiges Zeichen. Es können nur Buchstaben oder Zahlen verwendet werden.
+      </div>
     </div>
   </div>
 </template>
@@ -61,7 +64,7 @@ export default {
   name: 'Chatbot',
   components: {ChatbotMessage},
   data() {
-    return {userText: '', isSending: false}
+    return {userText: '', isSending: false, invalidCharacter: false}
   },
   computed: {
     messages() {
@@ -125,7 +128,18 @@ export default {
           this.isSending = false
         }
       }
-    }
+    },
+    validateInput() {
+      const regex = /[^a-zA-Z0-9\s.?!]+/g;
+      const hasInvalidCharacters = regex.test(this.userText);
+
+      if (hasInvalidCharacters) {
+        this.invalidCharacter = true;
+        this.userText = this.userText.replace(regex, '');
+      } else {
+        this.invalidCharacter = false;
+      }
+    },
   }
 }
 </script>
