@@ -130,16 +130,16 @@ export default {
       }
     },
     validateInput() {
-      const regex = /[^a-zA-Z0-9\s.?!]+/g;
-      const hasInvalidCharacters = regex.test(this.userText);
+      const regex = /[^a-zA-Z0-9\s.?!]+/g
+      const hasInvalidCharacters = regex.test(this.userText)
 
       if (hasInvalidCharacters) {
-        this.invalidCharacter = true;
-        this.userText = this.userText.replace(regex, '');
+        this.invalidCharacter = true
+        this.userText = this.userText.replace(regex, '')
       } else {
-        this.invalidCharacter = false;
+        this.invalidCharacter = false
       }
-    },
+    }
   }
 }
 </script>
