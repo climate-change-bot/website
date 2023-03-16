@@ -16,7 +16,7 @@
             <div v-if="!isLoading && !isOpenAi"
                  class="inline-block text-white">
               <div class="rounded-lg rounded-br-none px-4 py-2 bg-default-color"
-                   :class="[hasButtons ? 'rounded-bl-none' : '']"
+                   :class="[hasButtons | isQuizAnswer ? 'rounded-bl-none' : '']"
                    v-html="htmlMessage"></div>
               <div class="px-4 py-2 rounded-bl border-solid border border-default-color text-black"
                    v-if="hasButtons">
@@ -39,6 +39,15 @@
                     </label>
                   </div>
                 </fieldset>
+              </div>
+              <div class="px-4 py-2 rounded-bl border-solid border border-default-color text-black"
+                   v-else-if="isQuizAnswer">
+                <button
+                  type="button"
+                  class="bg-transparent hover:bg-default-color text-default-color font-semibold hover:text-white py-2 px-4 border border-default-color hover:border-transparent rounded"
+                  @click="nextQuestion">
+                  Weiter
+                </button>
               </div>
             </div>
             <div v-else-if="!isLoading && isOpenAi"
@@ -122,6 +131,9 @@ export default {
     },
     hasButtons: function () {
       return Array.isArray(this.buttons)
+    },
+    isQuizAnswer: function () {
+      return this.message.isQuizAnswer
     }
   },
   methods: {
@@ -129,6 +141,10 @@ export default {
       const value = event.target.value
       this.$store.commit('messages/setSelectedButtonValue', {value, messageId})
       this.$emit('send-button-value')
+    },
+    nextQuestion() {
+      this.$store.commit('messages/showAllMessages')
+      this.$emit('scroll-to-end')
     }
   }
 }
@@ -228,11 +244,11 @@ input.is_correct_answer[type="radio"]:checked + label {
 }
 
 input[type="radio"]:checked + label span {
-  background-color: #FF8A65;
+  background-color: #b71c1c;
   box-shadow: 0 0 0 2px white inset;
 }
 
 input[type="radio"]:checked + label {
-  color: #FF8A65;
+  color: #b71c1c;
 }
 </style>

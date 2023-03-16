@@ -27,7 +27,8 @@ export default Vue.extend({
       })
       for (const chatbotEntry of response) {
         this.$store.commit('messages/add', {
-          isUser: false, isOpenai: false, message: chatbotEntry.text, buttons: chatbotEntry.buttons
+          isUser: false, isOpenai: false, message: chatbotEntry.text, buttons: chatbotEntry.buttons,
+          isQuizAnswer: false
         })
       }
     }

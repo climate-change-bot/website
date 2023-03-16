@@ -12,7 +12,9 @@
                       :buttons="message.buttons"
                       :is-last-message="messages.length - 1 === index"
                       :selected-button-value="message.selectedButtonValue"
+                      v-show="!message.hideMessage"
                       @send-button-value="sendQuestion(message.selectedButtonValue, false)"
+                      @scroll-to-end="scrollToEnd"
                       :key="message.key"
                       v-for="(message, index) in messages">
       </ChatbotMessage>
@@ -49,9 +51,10 @@
             </svg>
           </button>
         </div>
-        </div>
+      </div>
       <div v-show="showUserTextLength" class="mt-2 text-sm">{{ userText.length }}/300</div>
-      <div v-show="invalidCharacter" class="mt-2 text-sm text-red-400"> Ungültiges Zeichen. Es können nur Buchstaben oder Zahlen verwendet werden.
+      <div v-show="invalidCharacter" class="mt-2 text-sm text-red-400"> Ungültiges Zeichen. Es können nur Buchstaben
+        oder Zahlen verwendet werden.
       </div>
     </div>
   </div>
@@ -108,11 +111,16 @@ export default {
           for (const chatbotEntry of response) {
             if (chatbotEntry.custom && chatbotEntry.custom.openai) {
               this.$store.commit('messages/add', {
-                isUser: false, isOpenai: true, message: chatbotEntry.custom.text
+                isUser: false, isOpenai: true, isQuizAnswer: false, message: chatbotEntry.custom.text
+              })
+            } else if (chatbotEntry.custom && chatbotEntry.custom.isQuizAnswer) {
+              this.$store.commit('messages/add', {
+                isUser: false, isOpenai: false, isQuizAnswer: true, message: chatbotEntry.custom.text
               })
             } else {
               this.$store.commit('messages/add', {
-                isUser: false, isOpenai: false, message: chatbotEntry.text, buttons: chatbotEntry.buttons
+                isUser: false, isOpenai: false, isQuizAnswer: false, message: chatbotEntry.text,
+                buttons: chatbotEntry.buttons
               })
             }
           }
@@ -139,6 +147,10 @@ export default {
       } else {
         this.invalidCharacter = false
       }
+    },
+    async scrollToEnd() {
+      await this.$nextTick()
+      this.$refs.messages.scrollTop = this.$refs.messages.scrollHeight
     }
   }
 }
