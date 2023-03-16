@@ -26,13 +26,13 @@
                        class="flex items-center mr-4 mb-4">
                     <input type="radio"
                            class="hidden"
-                           :id="button.payload"
+                           :id="button.payload + messageId"
                            :value="button.payload"
                            :name="messageId"
                            :disabled="!isLastMessage"
                            @change="changeButtonValue($event, messageId)"/>
                     <label class="flex items-center cursor-pointer"
-                           :for="button.payload">
+                           :for="button.payload + messageId">
                       <span class="w-6 h-6 block mr-4 rounded-full border border-grey flex-none"></span>
                       {{ button.title }}
                     </label>
