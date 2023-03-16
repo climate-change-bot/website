@@ -4,7 +4,7 @@
       <div class="flex flex-col space-y-2 text-base mx-2 order-2 items-start chat-message-container">
         <div>
           <div
-            class="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">{{ message }}
+            class="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">{{ message.message }}
           </div>
         </div>
       </div>
@@ -26,6 +26,7 @@
                        class="flex items-center mr-4 mb-4">
                     <input type="radio"
                            class="hidden"
+                           :class="{'is_correct_answer' : message.isTrueValue}"
                            :id="button.payload + messageId"
                            :value="button.payload"
                            :name="messageId"
@@ -38,14 +39,6 @@
                     </label>
                   </div>
                 </fieldset>
-                <button v-if="isLastMessage"
-                        :disabled="!selectedButtonValue"
-                        type="button"
-                        class="inline-flex items-center justify-center rounded-lg px-4 py-3 transition duration-500 ease-in-out text-white focus:outline-none"
-                        :class="[!selectedButtonValue ? 'bg-slate-400': 'bg-default-color hover:bg-default-color-dark']"
-                        @click="$emit('send-button-value')">
-                  Senden
-                </button>
               </div>
             </div>
             <div v-else-if="!isLoading && isOpenAi"
@@ -101,8 +94,8 @@ export default {
       default: 0
     },
     message: {
-      type: String,
-      default: ''
+      type: Object,
+      default: null
     },
     buttons: {
       type: Array,
@@ -125,7 +118,7 @@ export default {
   },
   computed: {
     htmlMessage: function () {
-      return converter.makeHtml(this.message)
+      return converter.makeHtml(this.message.message)
     },
     hasButtons: function () {
       return Array.isArray(this.buttons)
@@ -135,6 +128,7 @@ export default {
     changeButtonValue(event, messageId) {
       const value = event.target.value
       this.$store.commit('messages/setSelectedButtonValue', {value, messageId})
+      this.$emit('send-button-value')
     }
   }
 }
@@ -224,12 +218,21 @@ input[type="radio"]:enabled + label:hover span {
   transform: scale(1.2);
 }
 
-input[type="radio"]:checked + label span {
+input.is_correct_answer[type="radio"]:checked + label span {
   background-color: #2e7d32;
   box-shadow: 0 0 0 2px white inset;
 }
 
-input[type="radio"]:checked + label {
+input.is_correct_answer[type="radio"]:checked + label {
   color: #2e7d32;
+}
+
+input[type="radio"]:checked + label span {
+  background-color: #FF8A65;
+  box-shadow: 0 0 0 2px white inset;
+}
+
+input[type="radio"]:checked + label {
+  color: #FF8A65;
 }
 </style>

@@ -7,7 +7,7 @@
          class="flex flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
       <ChatbotMessage :is-user="message.isUser"
                       :is-open-ai="message.isOpenai"
-                      :message="message.message"
+                      :message="message"
                       :message-id="message.key"
                       :buttons="message.buttons"
                       :is-last-message="messages.length - 1 === index"
@@ -22,7 +22,7 @@
                       :is-user=false>
       </ChatbotMessage>
     </div>
-    <div class="border-t-2 border-gray-200 px-4 pt-4 mb-2 sm:mb-0">
+    <div class="border-t-2 border-gray-200 px-4 pt-4 mb-2 sm:mb-0" v-show="!lastChatbotMessageHasButtons">
       <div class="relative flex">
         <input type="text"
                autofocus
