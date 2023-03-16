@@ -17,7 +17,7 @@ export const mutations = {
   setSelectedButtonValue(state, payload) {
     const message = state.messages.find(x => x.key === payload.messageId)
     message.selectedButtonValue = payload.value
-    message.isTrueValue = payload.value.includes('\"true_')
+    message.isTrueValue = payload.value.includes('"true_')
   }
 }
 
