@@ -27,7 +27,7 @@ export const mutations = {
     message.isTrueValue = payload.value.includes('"true_')
   },
   showAllMessages(state) {
-    for (let message of state.messages) {
+    for (const message of state.messages) {
       message.hideMessage = false
     }
     state.hideNextAnswers = false

@@ -24,7 +24,8 @@
                       :is-user=false>
       </ChatbotMessage>
     </div>
-    <div class="border-t-2 border-gray-200 px-4 pt-4 mb-2 sm:mb-0" v-show="!lastChatbotMessageHasButtons">
+    <div class="border-t-2 border-gray-200 px-4 pt-4 mb-2 sm:mb-0"
+         v-show="!lastChatbotMessageHasButtons && !hiddenMessages">
       <div class="relative flex">
         <input type="text"
                autofocus
@@ -76,6 +77,9 @@ export default {
     noMessages() {
       return this.$store.state.messages.messages.length === 0
     },
+    hiddenMessages() {
+      return this.$store.state.messages.hideNextAnswers
+    },
     lastChatbotMessageHasButtons() {
       return this.$store.state.messages.lastChatbotMessageHasButtons
     },
@@ -119,7 +123,10 @@ export default {
               })
             } else {
               this.$store.commit('messages/add', {
-                isUser: false, isOpenai: false, isQuizAnswer: false, message: chatbotEntry.text,
+                isUser: false,
+                isOpenai: false,
+                isQuizAnswer: false,
+                message: chatbotEntry.text,
                 buttons: chatbotEntry.buttons
               })
             }
