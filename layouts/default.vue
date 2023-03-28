@@ -4,7 +4,12 @@
 
 <script>
 export default {
-  layout: 'default'
+  layout: 'default',
+  watch: {
+    $route() {
+      this.$store.commit('header/set', false)
+    }
+  }
 }
 </script>
 
