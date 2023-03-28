@@ -59,10 +59,18 @@
         </div>
       </div>
       <div v-show="isOpen" class="transition ease-in duration-200 flex-col mt-3 ml-4 flex">
-        <a href="/" :class="{'font-semibold': $route.name === 'index'}" class="text-white text-md pb-1.5">Startseite</a>
-        <a href="/chatbot" :class="{'font-semibold': $route.name === 'chatbot'}" class="text-white text-md pb-1.5">Chatbot</a>
-        <a href="/privacy" :class="{'font-semibold': $route.name === 'privacy'}" class="text-white text-md pb-1.5">Privatsphäre</a>
-        <a href="/contact" :class="{'font-semibold': $route.name === 'contact'}" class="text-white text-md pb-1.5">Kontakt</a>
+        <NuxtLink to="/" :class="{'font-semibold': $route.name === 'index'}" class="text-white text-md pb-1.5">
+          Startseite
+        </NuxtLink>
+        <NuxtLink to="/chatbot" :class="{'font-semibold': $route.name === 'chatbot'}" class="text-white text-md pb-1.5">
+          Chatbot
+        </NuxtLink>
+        <NuxtLink to="/privacy" :class="{'font-semibold': $route.name === 'privacy'}" class="text-white text-md pb-1.5">
+          Privatsphäre
+        </NuxtLink>
+        <NuxtLink to="/contact" :class="{'font-semibold': $route.name === 'contact'}" class="text-white text-md pb-1.5">
+          Kontakt
+        </NuxtLink>
       </div>
     </nav>
   </header>
