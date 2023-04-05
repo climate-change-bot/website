@@ -29,6 +29,7 @@
       <div class="relative flex">
         <input type="text"
                autofocus
+               ref="text"
                maxlength="300"
                :placeholder="disableTextInput ? '' : 'Dein Text'"
                v-model="userText"
@@ -67,6 +68,10 @@ import ChatbotMessage from '~/components/chatbot/ChatbotMessage'
 export default {
   name: 'Chatbot',
   components: {ChatbotMessage},
+  mounted() {
+    this.$refs.messages.scrollTop = this.$refs.messages.scrollHeight
+    this.$refs.text.focus()
+  },
   data() {
     return {userText: '', isSending: false, invalidCharacter: false}
   },
@@ -141,6 +146,8 @@ export default {
           this.$store.commit('messages/add', {isUser: false, message: 'Ups, da ist ein Fehler aufgetreten'})
         } finally {
           this.isSending = false
+          await this.$nextTick()
+          this.$refs.text.focus()
         }
       }
     },
