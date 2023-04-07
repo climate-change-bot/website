@@ -13,7 +13,7 @@
           <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
             Der Chatbot wird von mir <a href="https://www.linkedin.com/in/roger-waldvogel/" target="_blank">(Roger
             Waldvogel)</a> im Rahmen meiner Master Thesis für den Studiengang <a
-            href="https://www.hslu.ch/en/lucerne-school-of-business/degree-programmes/master/applied-information-and-data-science/"
+            href="https://www.hslu.ch/de-ch/wirtschaft/studium/master/applied-information-and-data-science/"
             target="_blank"
             class="font-semibold">Information
             and Data Science</a> an der <a href="https://www.hslu.ch" target="_blank" class="font-semibold">Hochschule Luzern</a>
