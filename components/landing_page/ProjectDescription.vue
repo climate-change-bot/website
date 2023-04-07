@@ -44,6 +44,24 @@
         <div class="items-center">
           <div class="text-gray-500 sm:text-lg dark:text-gray-400">
             <h2 class="text-center mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+              Organisationen die das Projekt unterstützen</h2>
+            <div class="flex flex-wrap items-center justify-center">
+              <a href="https://www.hslu.ch" target="_blank" rel="noopener noreferrer" class="mt-10 mr-5">
+                <img src="/HSLU_2022_logo.png" alt="Hochschule Luzern" loading="lazy" class="organisation-logo">
+              </a>
+              <a href="https://www.fhgr.ch" target="_blank" rel="noopener noreferrer" class="mt-10 mr-5">
+                <img src="/fhgr.jpeg" alt="Fachhochschule Graubünden" loading="lazy" class="organisation-logo">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-white dark:bg-gray-900">
+      <div class="max-w-screen-xl px-4 py-14 mx-auto space-y-12 lg:space-y-20 lg:py-24 lg:px-6">
+        <div class="items-center">
+          <div class="text-gray-500 sm:text-lg dark:text-gray-400">
+            <h2 class="text-center mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
               Chat für eine nachhaltige Zukunft starten</h2>
             <div class="space-y-12 flex space-x-4">
               <button
@@ -68,5 +86,9 @@ export default {
 <style scoped>
 .climate-skinny-image {
   margin-left: auto;
+}
+
+.organisation-logo {
+  height: 48px;
 }
 </style>
