@@ -8,7 +8,7 @@
             <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
               Weshalb einen Chatbot entwickeln?</h2>
             <div class="flex justify-center mb-8 mt-6 lg:hidden">
-              <img src="/climate_skinny.jpg" alt="climate change skinny" loading="lazy">
+              <img src="https://climate-change-bot-images.s3.eu-central-1.amazonaws.com/climate-change.webp" alt="climate change skinny" loading="lazy">
             </div>
             <p class="mb-8 font-light lg:text-xl">Wir haben nicht mehr viel Zeit um die
               Folgen der Klimaerwärmung zu begrenzen. Jedoch ist der Klimawandel ein komplexes Thema mit vielen
@@ -16,26 +16,57 @@
               verstanden und Lösungen aufgezeigt werden.</p>
           </div>
           <img class="climate-skinny-image hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex max-w-md"
-               src="/climate_skinny.jpg"
+               src="https://climate-change-bot-images.s3.eu-central-1.amazonaws.com/climate-change.webp"
                alt="climate change skinny">
         </div>
         <!-- Row -->
         <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
           <img class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex"
-               src="/plant.jpg"
+               src="https://climate-change-bot-images.s3.eu-central-1.amazonaws.com/plant.webp"
                alt="Women holding small plant"
                loading="lazy">
           <div class="text-gray-500 sm:text-lg dark:text-gray-400">
             <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">Stand der
               Entwicklung</h2>
             <div class="flex justify-center mb-8 mt-6 lg:hidden">
-              <img src="/plant.jpg" alt="Women holding small plant" loading="lazy">
+              <img src="https://climate-change-bot-images.s3.eu-central-1.amazonaws.com/plant.webp" alt="Women holding small plant" loading="lazy">
             </div>
             <p class="mb-8 font-light lg:text-xl">Der Chatbot ist noch eine kleine Pflanze, welche erst vor kurzem das
               Licht der Welt erblickt hat. Jedes Mal wenn du den Climate Change Bot verwendest trägst du dazu bei, dass
               dieser ein wenig wachsen kann. Zudem kannst du das Wachstum fördern, in dem du deine Freunde auf dieses
               Projekt aufmerksam machst. Je mehr Leute den Chatbot benützen, desto besser wird er.</p>
           </div>
+        </div>
+        <!-- Row -->
+        <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
+          <div class="text-gray-500 sm:text-lg dark:text-gray-400">
+            <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+              Umfrage</h2>
+            <div class="flex justify-center mb-8 mt-6 lg:hidden">
+              <img
+                src="https://climate-change-bot-images.s3.eu-central-1.amazonaws.com/survey.webp"
+                alt="survey"
+                loading="lazy">
+            </div>
+            <p class="mb-8 font-light lg:text-xl">Der Chatbot wird im Rahmen einer Master Thesis für den Studiengang <a
+              href="https://www.hslu.ch/de-ch/wirtschaft/studium/master/applied-information-and-data-science/"
+              target="_blank"
+              class="font-semibold">Information and Data Science</a> entwickelt. Durch das Ausfüllen der Umfrage trägst
+              du dazu bei, dass wissenschaftliche Verständnis für den Einsatz von Chatbots im Bildungsbereich zu
+              verbessern.</p>
+            <div class="space-y-12 flex">
+              <a href="https://survey.fhgr.ch/429935?lang=de" target="_blank" class="lg:mx-0 mx-auto">
+                <button
+                  class="bg-default-color hover:bg-default-color-dark text-white font-bold py-2 px-16 lg:px-8 rounded">
+                  Zur Umfrage
+                </button>
+              </a>
+            </div>
+          </div>
+          <img class="climate-skinny-image hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex max-w-md"
+               src="https://climate-change-bot-images.s3.eu-central-1.amazonaws.com/survey.webp"
+               alt="survey"
+               loading="lazy">
         </div>
       </div>
     </div>
@@ -90,5 +121,8 @@ export default {
 
 .organisation-logo {
   height: 48px;
+  @media screen and (max-width: 900px) {
+    height: 32px;
+  }
 }
 </style>
