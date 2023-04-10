@@ -31,7 +31,7 @@
             <div class="flex justify-center mb-8 mt-6 lg:hidden">
               <img src="https://climate-change-bot-images.s3.eu-central-1.amazonaws.com/plant.webp" alt="Women holding small plant" loading="lazy">
             </div>
-            <p class="mb-8 font-light lg:text-xl">Der Chatbot ist noch eine kleine Pflanze, welche erst vor kurzem das
+            <p class="mb-8 font-light lg:text-xl">Der Chatbot ist noch eine kleine "Pflanze", welche erst vor kurzem das
               Licht der Welt erblickt hat. Jedes Mal wenn du den Climate Change Bot verwendest trägst du dazu bei, dass
               dieser ein wenig wachsen kann. Zudem kannst du das Wachstum fördern, in dem du deine Freunde auf dieses
               Projekt aufmerksam machst. Je mehr Leute den Chatbot benützen, desto besser wird er.</p>
@@ -52,7 +52,7 @@
               href="https://www.hslu.ch/de-ch/wirtschaft/studium/master/applied-information-and-data-science/"
               target="_blank"
               class="font-semibold">Information and Data Science</a> entwickelt. Durch das Ausfüllen der Umfrage trägst
-              du dazu bei, dass wissenschaftliche Verständnis für den Einsatz von Chatbots im Bildungsbereich zu
+              du dazu bei, dass Verständnis für den Einsatz von Chatbots in der Umweltbildung zu
               verbessern.</p>
             <div class="space-y-12 flex">
               <a href="https://survey.fhgr.ch/429935?lang=de" target="_blank" class="lg:mx-0 mx-auto">
@@ -77,10 +77,10 @@
             <h2 class="text-center mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
               Organisationen die das Projekt unterstützen</h2>
             <div class="flex flex-wrap items-center justify-center">
-              <a href="https://www.hslu.ch" target="_blank" rel="noopener noreferrer" class="mt-10 mr-5">
+              <a href="https://www.hslu.ch" target="_blank" rel="noopener noreferrer" class="mt-10 mr-10">
                 <img src="/HSLU_2022_logo.png" alt="Hochschule Luzern" loading="lazy" class="organisation-logo">
               </a>
-              <a href="https://www.fhgr.ch" target="_blank" rel="noopener noreferrer" class="mt-10 mr-5">
+              <a href="https://www.fhgr.ch" target="_blank" rel="noopener noreferrer" class="mt-10 mr-10">
                 <img src="/fhgr.jpeg" alt="Fachhochschule Graubünden" loading="lazy" class="organisation-logo">
               </a>
             </div>
