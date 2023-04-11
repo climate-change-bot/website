@@ -152,7 +152,7 @@ export default {
       }
     },
     validateInput() {
-      const regex = /[^a-zA-Z0-9öüäèéà\s,.:?!()-;]+/g
+      const regex = /[^a-zA-Z0-9ÖöÜüÄäèéà\s,.:?!()-;]+/g
       const hasInvalidCharacters = regex.test(this.userText)
 
       if (hasInvalidCharacters) {
