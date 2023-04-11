@@ -29,6 +29,7 @@
                            :class="{'is_correct_answer' : message.isTrueValue}"
                            :id="button.payload + messageId"
                            :value="button.payload"
+                           :checked="button.payload === message.selectedButtonValue"
                            :name="messageId"
                            :disabled="!isLastMessage"
                            @change="changeButtonValue($event, messageId)"/>
