@@ -15,7 +15,13 @@
             wer die Konversation geführt hat.
           </p>
           <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-            <b class="font-bold">2.</b> Mit Matomo werden die Webseitenbesuche analysiert. Die Daten werden in Europa
+            <b class="font-bold">2.</b> Antworten, die mit dem Rasa-Framework nicht generiert werden können, werden
+            mittels einer API an ChatGPT von OpenAI übermittelt. Dabei werden lediglich die Inhalte des Chatverlaufs
+            übertragen, ohne zusätzliche persönliche Daten preiszugeben.
+            OpenAI speichert die Daten für einen Zeitraum von 30 Tagen, um ihr Modell zu optimieren.
+          </p>
+          <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+            <b class="font-bold">3.</b> Mit Matomo werden die Webseitenbesuche analysiert. Die Daten werden in Europa
             gespeichert und nur für diesen Zweck verwendet. Wenn du das nicht möchtest, kannst du das Tracking
             deaktivieren. Jedoch hilft mir diese Analyse sehr bei der Verbesserung der Webseite.
           </p>
