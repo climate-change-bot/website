@@ -37,37 +37,6 @@
               Projekt aufmerksam machst. Je mehr Leute den Chatbot benützen, desto besser wird er.</p>
           </div>
         </div>
-        <!-- Row -->
-        <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
-          <div class="text-gray-500 sm:text-lg dark:text-gray-400">
-            <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-              Umfrage</h2>
-            <div class="flex justify-center mb-8 mt-6 lg:hidden">
-              <img
-                src="https://climate-change-bot-images.s3.eu-central-1.amazonaws.com/survey.jpg"
-                alt="survey"
-                loading="lazy">
-            </div>
-            <p class="mb-8 font-light lg:text-xl">Der Chatbot wird im Rahmen einer Master Thesis für den Studiengang <a
-              href="https://www.hslu.ch/de-ch/wirtschaft/studium/master/applied-information-and-data-science/"
-              target="_blank"
-              class="font-semibold">Information and Data Science</a> entwickelt. Durch das Ausfüllen der Umfrage trägst
-              du dazu bei, dass Verständnis für den Einsatz von Chatbots in der Umweltbildung zu
-              verbessern.</p>
-            <div class="space-y-12 flex">
-              <a href="https://survey.fhgr.ch/429935?lang=de" target="_blank" class="lg:mx-0 mx-auto">
-                <button
-                  class="bg-default-color hover:bg-default-color-dark text-white font-bold py-2 px-16 lg:px-8 rounded">
-                  Zur Umfrage
-                </button>
-              </a>
-            </div>
-          </div>
-          <img class="climate-skinny-image hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex max-w-md"
-               src="https://climate-change-bot-images.s3.eu-central-1.amazonaws.com/survey.jpg"
-               alt="survey"
-               loading="lazy">
-        </div>
       </div>
     </div>
     <div class="bg-white dark:bg-gray-900">
