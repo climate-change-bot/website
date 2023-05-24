@@ -10,7 +10,7 @@ can answer questions about climate change.
 
 - All main pages are in the folder [pages](pages)
 - The vue.js components used in the pages are in the folder [components](components)
-- The static content of the website like images are in the folder [static](components)
+- The static content of the website like images are in the folder [static](static)
 - The API to redirect calls to the chatbot is defined in [api/rasaAPI.js](api/rasaAPI.js)
 
 ## Running the Code
