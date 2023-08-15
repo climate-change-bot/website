@@ -26,7 +26,7 @@
             einer Zusammenarbeit hast, freue ich mich auf deine Kontaktaufnahme.
           </p>
           <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-            <a href="mailto:roger.waldvogel@stud.hslu.ch">roger.waldvogel@stud.hslu.ch</a>
+            <a href="mailto:roger.waldvogel@fhgr.ch">roger.waldvogel@fhgr.ch</a>
           </p>
         </div>
         <div class="hidden lg:mt-0 lg:col-span-5 lg:flex max-w-xs">
