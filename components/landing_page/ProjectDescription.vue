@@ -9,7 +9,8 @@
               Weshalb einen Chatbot entwickeln?</h2>
             <div class="flex justify-center mb-8 mt-6 lg:hidden">
               <img src="https://climate-change-bot-images.s3.eu-central-1.amazonaws.com/climate-change.jpg"
-                   alt="climate change skinny" loading="lazy">
+                   alt="climate change skinny"
+                   loading="lazy">
             </div>
             <p class="mb-8 font-light lg:text-xl">Wir haben nicht mehr viel Zeit um die
               Folgen der Klimaerwärmung zu begrenzen. Jedoch ist der Klimawandel ein komplexes Thema mit vielen
@@ -31,7 +32,8 @@
               Entwicklung</h2>
             <div class="flex justify-center mb-8 mt-6 lg:hidden">
               <img src="https://climate-change-bot-images.s3.eu-central-1.amazonaws.com/plant.jpg"
-                   alt="Women holding small plant" loading="lazy">
+                   alt="Women holding small plant"
+                   loading="lazy">
             </div>
             <p class="mb-8 font-light lg:text-xl">Der Chatbot ist ein Prototyp und wurde im Rahmen meiner Master Thesis
               für den Studiengang <a
