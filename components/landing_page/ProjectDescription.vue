@@ -8,7 +8,8 @@
             <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
               Weshalb einen Chatbot entwickeln?</h2>
             <div class="flex justify-center mb-8 mt-6 lg:hidden">
-              <img src="https://climate-change-bot-images.s3.eu-central-1.amazonaws.com/climate-change.jpg" alt="climate change skinny" loading="lazy">
+              <img src="https://climate-change-bot-images.s3.eu-central-1.amazonaws.com/climate-change.jpg"
+                   alt="climate change skinny" loading="lazy">
             </div>
             <p class="mb-8 font-light lg:text-xl">Wir haben nicht mehr viel Zeit um die
               Folgen der Klimaerwärmung zu begrenzen. Jedoch ist der Klimawandel ein komplexes Thema mit vielen
@@ -29,12 +30,19 @@
             <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">Stand der
               Entwicklung</h2>
             <div class="flex justify-center mb-8 mt-6 lg:hidden">
-              <img src="https://climate-change-bot-images.s3.eu-central-1.amazonaws.com/plant.jpg" alt="Women holding small plant" loading="lazy">
+              <img src="https://climate-change-bot-images.s3.eu-central-1.amazonaws.com/plant.jpg"
+                   alt="Women holding small plant" loading="lazy">
             </div>
-            <p class="mb-8 font-light lg:text-xl">Der Chatbot ist noch eine kleine "Pflanze", welche erst vor kurzem das
-              Licht der Welt erblickt hat. Jedes Mal wenn du den Climate Change Bot verwendest trägst du dazu bei, dass
-              dieser ein wenig wachsen kann. Zudem kannst du das Wachstum fördern, in dem du deine Freunde auf dieses
-              Projekt aufmerksam machst. Je mehr Leute den Chatbot benützen, desto besser wird er.</p>
+            <p class="mb-8 font-light lg:text-xl">Der Chatbot ist ein Prototyp und wurde im Rahmen meiner Master Thesis
+              für den Studiengang <a
+                href="https://www.hslu.ch/de-ch/wirtschaft/studium/master/applied-information-and-data-science/"
+                target="_blank"
+                class="font-semibold">Information
+                and Data Science</a> an der <a href="https://www.hslu.ch" target="_blank" class="font-semibold">Hochschule
+                Luzern</a>
+              entwickelt. Die Master Thesis ist abgeschlossen, jedoch können weiterhin Fragen an den Chatbot bezüglich
+              des Klimawandels gestellt werden. Das Ziel ist es nun eine Finanzierungsmöglichkeit zu finden, damit der
+              Chatbot weiterentwickelt werden kann.</p>
           </div>
         </div>
       </div>
