@@ -32,22 +32,3 @@
     <Consent/>
   </div>
 </template>
-
-<script lang="js">
-import Vue from 'vue'
-import DefaultHeader from '~/components/navigation/DefaultHeader'
-import Consent from '@/components/consent/Consent.vue'
-
-export default Vue.extend({
-  name: 'Privacy',
-  components: {DefaultHeader, Consent},
-  mounted() {
-    if (document.initMatomoOptOut) {
-      document.initMatomoOptOut()
-    }
-  },
-  matomo() {
-    this.enableHeartBeatTimer(10)
-  }
-})
-</script>

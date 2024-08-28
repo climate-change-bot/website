@@ -25,10 +25,10 @@
         </div>
         <div class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1">
           <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-            <header-button-nav route="/" text="Startseite"></header-button-nav>
-            <header-button-nav route="/chatbot" text="Chatbot"></header-button-nav>
-            <header-button-nav route="/privacy" text="Datenschutz"></header-button-nav>
-            <header-button-nav route="/contact" text="Kontakt"></header-button-nav>
+            <header-button-nav route="/" text="Startseite"/>
+            <header-button-nav route="/chatbot" text="Chatbot"/>
+            <header-button-nav route="/privacy" text="Datenschutz"/>
+            <header-button-nav route="/contact" text="Kontakt"/>
           </ul>
         </div>
       </div>
@@ -50,7 +50,7 @@
         <div class="flex justify-between items-center">
           <button type="button"
                   class="text-gray-500 hover:text-gray-600 focus:text-gray-600 focus:outline-none pl-2 py-1"
-                  @click="$store.commit('header/set', !isOpen)">
+                  @click="store.set(!store.isNavOpen)">
             <svg viewBox="0 0 24 24" class="h-6 w-6 fill-white">
               <path
                 d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
@@ -58,7 +58,7 @@
           </button>
         </div>
       </div>
-      <div v-show="isOpen" class="transition ease-in duration-200 flex-col mt-3 ml-4 flex">
+      <div v-show="store.isNavOpen" class="transition ease-in duration-200 flex-col mt-3 ml-4 flex">
         <NuxtLink to="/" :class="{'font-semibold': $route.name === 'index'}" class="text-white text-md pb-1.5">
           Startseite
         </NuxtLink>
@@ -76,19 +76,11 @@
   </header>
 </template>
 
-<script>
-import Vue from 'vue'
-import HeaderButtonNav from '~/components/navigation/HeaderButtonNav'
+<script lang="ts" setup>
 
-export default Vue.extend({
-  name: 'DefaultHeader',
-  components: {HeaderButtonNav},
-  computed: {
-    isOpen: function () {
-      return this.$store.state.header.isNavOpen
-    }
-  }
-})
+import {useHeaderStore} from '~/store/header'
+
+const store = useHeaderStore()
 </script>
 
 <style scoped>

@@ -1,7 +1,4 @@
-export default {
-  // Target: https://go.nuxtjs.dev/config-target
-  target: 'server',
-
+export default defineNuxtConfig({
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Climate Change Bot',
@@ -17,7 +14,11 @@ export default {
         content: 'Möchtest du mehr über den Klimawandel wissen und was du dagegen tun kannst? Dann bist du hier genau richtig! Der Climate Change Bot beantwortet deine Fragen zu diesem wichtigen Thema.'
       },
       {hid: 'og:title', property: 'og:title', content: 'Climate Change Bot'},
-      {hid: 'og:description', property: 'og:description', content: 'Möchtest du mehr über den Klimawandel wissen und was du dagegen tun kannst? Dann bist du hier genau richtig! Der Climate Change Bot beantwortet deine Fragen zu diesem wichtigen Thema.'},
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: 'Möchtest du mehr über den Klimawandel wissen und was du dagegen tun kannst? Dann bist du hier genau richtig! Der Climate Change Bot beantwortet deine Fragen zu diesem wichtigen Thema.'
+      },
       {hid: 'og:type', property: 'og:type', content: 'website'},
       {hid: 'og:local', property: 'og:local', content: 'de_DE'},
       {hid: 'og:url', property: 'og:url', content: 'https://www.climate-change-bot.site/'},
@@ -30,13 +31,12 @@ export default {
     link: [
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
     ],
-    script: [
-      {
-        hid: 'matamo-opt-out',
-        src: '/scripts/matomo.js'
-      }
-    ],
     noscript: [{innerHTML: 'Diese Webseite benötigt JavaScript', body: true}]
+  },
+
+  components: {
+    path: '~/components',
+    pathPrefix: false
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -46,48 +46,28 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/tooltip.js', mode: 'client' }
-  ],
-
-  // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
-
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    // https://go.nuxtjs.dev/typescript
-    '@nuxt/typescript-build',
-    // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss'
+    {src: '~/plugins/tooltip.js', mode: 'client'}
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/axios',
-    ['nuxt-matomo', {matomoUrl: 'https://climatechangebotsite.matomo.cloud/', siteId: 1}]
+    '@pinia/nuxt'
   ],
 
-  axios: {
-    baseURL: process.env.API_URL
+  imports: {
+    presets: [
+      {
+        from: 'pinia',
+        imports: ['defineStore', 'storeToRefs']
+      }
+    ]
   },
 
-  publicRuntimeConfig: {
-    axios: {
-      browserBaseURL: process.env.API_URL
-    }
-  },
-
-  privateRuntimeConfig: {
-    axios: {
-      baseURL: process.env.API_URL
-    }
-  },
-
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-    transpile: ['floating-vue']
-  },
+  ssr: false,
 
   serverMiddleware: [
     {path: '/api', handler: '~/api/rasaAPI.js'}
-  ]
-}
+  ],
+
+  compatibilityDate: '2024-08-28'
+})

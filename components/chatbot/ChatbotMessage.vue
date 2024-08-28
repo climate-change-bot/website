@@ -16,11 +16,11 @@
             <div v-if="!isLoading && !isOpenAi"
                  class="inline-block text-white">
               <div class="rounded-lg rounded-br-none px-4 py-2 bg-default-color"
-                   :class="[hasButtons | isQuizAnswer ? 'rounded-bl-none' : '']"
+                   :class="[hasButtons || isQuizAnswer ? 'rounded-bl-none' : '']"
                    v-html="htmlMessage"></div>
               <div class="px-4 py-2 rounded-bl border-solid border border-default-color text-black"
                    v-if="hasButtons">
-                <fieldset class="py-2" :id="messageId">
+                <fieldset class="py-2" :id="messageId.toString()">
                   <div v-for="button in buttons"
                        :key="button.payload"
                        class="flex items-center mr-4 mb-4">
@@ -30,7 +30,7 @@
                            :id="button.payload + messageId"
                            :value="button.payload"
                            :checked="button.payload === message.selectedButtonValue"
-                           :name="messageId"
+                           :name="messageId.toString()"
                            :disabled="!isLastMessage"
                            @change="changeButtonValue($event, messageId)"/>
                     <label class="flex items-center cursor-pointer"
@@ -86,68 +86,86 @@
   </div>
 </template>
 
-<script>
-import showdown from 'showdown'
-import {Dropdown} from 'floating-vue'
+<script lang="ts" setup>
+import { computed, PropType } from 'vue'
+// import showdown from 'showdown'
+import {useMessageStore} from '~/store/message'
 
-const converter = new showdown.Converter({
-  openLinksInNewWindow: true,
-  emoji: true
+const messageStore = useMessageStore()
+
+// Initialize the showdown converter
+// const converter = new showdown.Converter({
+//   openLinksInNewWindow: true,
+//   emoji: true
+// })
+
+interface Button {
+  payload: string;
+  title: string;
+}
+
+interface Message {
+  message: string;
+  isTrueValue: Boolean;
+  isQuizAnswer: Boolean;
+  selectedButtonValue: any;
+}
+
+const props = defineProps({
+  messageId: {
+    type: Number,
+    default: 0
+  },
+  message: {
+    type: Object as PropType<Message>,
+    default: null
+  },
+  buttons: {
+    type: Array as PropType<Button[]>,
+    default: null
+  },
+  isLoading: {
+    type: Boolean,
+    default: false
+  },
+  selectedButtonValue: {
+    type: String,
+    default: ''
+  },
+  isLastMessage: {
+    type: Boolean,
+    default: false
+  },
+  isUser: Boolean,
+  isOpenAi: Boolean
 })
 
-export default {
-  name: 'ChatbotMessage',
-  components: {Dropdown},
-  props: {
-    messageId: {
-      type: Number,
-      default: 0
-    },
-    message: {
-      type: Object,
-      default: null
-    },
-    buttons: {
-      type: Array,
-      default: null
-    },
-    isLoading: {
-      type: Boolean,
-      default: false
-    },
-    selectedButtonValue: {
-      type: String,
-      default: ''
-    },
-    isLastMessage: {
-      type: Boolean,
-      default: false
-    },
-    isUser: Boolean,
-    isOpenAi: Boolean
-  },
-  computed: {
-    htmlMessage: function () {
-      return converter.makeHtml(this.message.message)
-    },
-    hasButtons: function () {
-      return Array.isArray(this.buttons)
-    },
-    isQuizAnswer: function () {
-      return this.message.isQuizAnswer
-    }
-  },
-  methods: {
-    changeButtonValue(event, messageId) {
-      const value = event.target.value
-      this.$store.commit('messages/setSelectedButtonValue', {value, messageId})
-      this.$emit('send-button-value')
-    },
-    nextQuestion() {
-      this.$store.commit('messages/showAllMessages')
-      this.$emit('scroll-to-end')
-    }
-  }
+// Define emits
+const emit = defineEmits(['send-button-value', 'scroll-to-end'])
+
+// Computed properties
+const htmlMessage = computed(() => {
+  return props.message.message
+})
+
+const hasButtons = computed(() => {
+  return Array.isArray(props.buttons)
+})
+
+const isQuizAnswer = computed(() => {
+  return props.message.isQuizAnswer
+})
+
+// Methods
+function changeButtonValue(event: Event, messageId: number) {
+  const value = (event.target as HTMLInputElement).value
+  messageStore.setSelectedButtonValue({ value, messageId })
+  emit('send-button-value')
+}
+
+function nextQuestion() {
+  messageStore.showAllMessages()
+  emit('scroll-to-end')
 }
 </script>
 

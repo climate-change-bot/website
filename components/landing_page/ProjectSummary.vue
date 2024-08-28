@@ -26,10 +26,7 @@
   </section>
 </template>
 
-<script>
-export default {
-  name: 'ProjectDescription'
-}
+<script lang="ts" setup>
 </script>
 
 <style scoped>

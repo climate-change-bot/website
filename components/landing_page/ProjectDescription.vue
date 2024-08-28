@@ -87,10 +87,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'MasterThesis'
-}
+<script lang="ts" setup>
 </script>
 
 <style scoped>

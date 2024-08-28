@@ -4,15 +4,18 @@
       <nav class="-mx-2 sm:-mx-5 -my-2 mb-1 flex flex-wrap justify-center" aria-label="Footer">
         <div class="px-3 sm:px-5 py-2 -mb-1">
           <NuxtLink to="/chatbot"
-             class="text-base text-[#1E1E24] opacity-75 hover:opacity-100">Chatbot</NuxtLink>
+                    class="text-base text-[#1E1E24] opacity-75 hover:opacity-100">Chatbot
+          </NuxtLink>
         </div>
         <div class="px-3 sm:px-5 py-2 -mb-1">
           <NuxtLink to="/privacy"
-             class="text-base text-[#1E1E24] opacity-75 hover:opacity-100">Datenschutz</NuxtLink>
+                    class="text-base text-[#1E1E24] opacity-75 hover:opacity-100">Datenschutz
+          </NuxtLink>
         </div>
         <div class="px-3 sm:px-5 py-2 -mb-1">
           <NuxtLink to="/contact"
-             class="text-base text-[#1E1E24] opacity-75 hover:opacity-100">Kontakt</NuxtLink>
+                    class="text-base text-[#1E1E24] opacity-75 hover:opacity-100">Kontakt
+          </NuxtLink>
         </div>
       </nav>
       <div class="mt-8 flex justify-center space-x-6">
@@ -47,15 +50,3 @@
     </div>
   </footer>
 </template>
-
-<script>
-import Vue from 'vue'
-
-export default Vue.extend({
-  name: 'DefaultFooter'
-})
-</script>
-
-<style scoped>
-
-</style>

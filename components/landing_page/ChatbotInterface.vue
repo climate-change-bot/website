@@ -1,17 +1,14 @@
 <template>
   <div class="md:bg-gray-50 h-full items-center flex justify-center chatbot-landing-page"
-       @click="$store.commit('header/set', false)">
+       @click="store.set(false)">
     <Chatbot/>
   </div>
 </template>
 
-<script>
-import Chatbot from '~/components/chatbot/Chatbot'
+<script lang="ts" setup>
+import {useHeaderStore} from '~/store/header'
 
-export default {
-  name: 'ChatbotInterface',
-  components: {Chatbot}
-}
+const store = useHeaderStore()
 </script>
 
 <style scoped>

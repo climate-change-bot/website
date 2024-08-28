@@ -2,43 +2,39 @@
   <div class="h-full">
     <default-header/>
     <chatbot-interface/>
-    <Consent/>
   </div>
 </template>
 
-<script lang="js">
-import Vue from 'vue'
-import DefaultHeader from '~/components/navigation/DefaultHeader'
-import ChatbotInterface from '~/components/landing_page/ChatbotInterface'
-import Consent from '@/components/consent/Consent.vue'
+<script lang="ts" setup>
+import {useFetch} from 'nuxt/app'
+import {useMessageStore} from '~/store/message'
+import {useUUIDStore} from '~/store/uuid'
 
-export default Vue.extend({
-  name: 'Chatbot',
-  components: {DefaultHeader, ChatbotInterface, Consent},
-  async fetch() {
-    if (this.$store.state.messages.messages.length === 0) {
-      const message = {
-        isUser: true,
-        message: '/greet'
-      }
-      const response = await this.$axios.$post('api/messages', {
-        sender: this.$store.state.uuid.uuid,
-        message: message.message
-      })
-      for (const chatbotEntry of response) {
-        this.$store.commit('messages/add', {
-          isUser: false,
-          isOpenai: false,
-          message: chatbotEntry.text,
-          buttons: chatbotEntry.buttons,
-          isQuizAnswer: false
-        })
-      }
-    }
-  },
-  fetchOnServer: false,
-  matomo() {
-    this.enableHeartBeatTimer(10)
+const messageStore = useMessageStore()
+const uuidStore = useUUIDStore()
+
+if (messageStore.messages.length === 0) {
+  const message = {
+    isUser: true,
+    message: '/greet'
   }
-})
+
+  const {data} = await useFetch('api/messages', {
+    method: 'POST',
+    body: {
+      sender: uuidStore.uuid,
+      message: message.message
+    }
+  })
+
+  for (const chatbotEntry of data.value) {
+    messageStore.add({
+      isUser: false,
+      isOpenai: false,
+      message: chatbotEntry.text,
+      buttons: chatbotEntry.buttons,
+      isQuizAnswer: false
+    })
+  }
+}
 </script>

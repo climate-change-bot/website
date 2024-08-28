@@ -1,24 +1,18 @@
 <template>
   <div>
     <default-header/>
-    <div @click="$store.commit('header/set', false)">
+    <div @click="store.set(false)">
+      <project-summary/>
       <project-description/>
-      <master-thesis/>
       <default-footer/>
     </div>
   </div>
 </template>
 
-<script>
-import DefaultHeader from '~/components/navigation/DefaultHeader'
-import DefaultFooter from '~/components/navigation/DefaultFooter'
-import ProjectDescription from '@/components/landing_page/ProjectSummary'
-import MasterThesis from '@/components/landing_page/ProjectDescription'
+<script lang="ts" setup>
+import {useHeaderStore} from '~/store/header'
 
-export default {
-  name: 'LandingPage',
-  components: {DefaultHeader, DefaultFooter, MasterThesis, ProjectDescription}
-}
+const store = useHeaderStore()
 </script>
 
 <style scoped>
