@@ -54,7 +54,7 @@
             <div v-else-if="!isLoading && isOpenAi"
                  class="px-4 py-2 rounded-lg inline-block rounded-br-none bg-default-color text-white">
               <div v-html="htmlMessage"></div>
-              <dropdown>
+              <VDropdown>
                 <div class="flex mt-2 items-center chatbot-message-info">
                   <div class="chatbot-message-info-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
@@ -68,7 +68,7 @@
                   Diese Antwort wurde von einer KI (ChatGPT) generiert. Es kann deshalb vorkommen, dass die Angaben
                   im Text nicht immer korrekt sind.
                 </template>
-              </dropdown>
+              </VDropdown>
             </div>
             <div v-else
                  class="px-4 py-2 rounded-lg inline-block rounded-br-none bg-default-color text-white">
