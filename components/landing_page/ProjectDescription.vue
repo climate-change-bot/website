@@ -8,7 +8,7 @@
             <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
               Weshalb einen Chatbot entwickeln?</h2>
             <div class="flex justify-center mb-8 mt-6 lg:hidden">
-              <img src="https://climate-change-bot-images.s3.eu-central-1.amazonaws.com/climate-change.jpg"
+              <img src="/climate-change.jpg"
                    alt="climate change skinny"
                    loading="lazy">
             </div>
@@ -18,20 +18,20 @@
               verstanden und Lösungen aufgezeigt werden.</p>
           </div>
           <img class="climate-skinny-image hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex max-w-md"
-               src="https://climate-change-bot-images.s3.eu-central-1.amazonaws.com/climate-change.jpg"
+               src="/climate-change.jpg"
                alt="climate change skinny">
         </div>
         <!-- Row -->
         <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
           <img class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex"
-               src="https://climate-change-bot-images.s3.eu-central-1.amazonaws.com/plant.jpg"
+               src="/plant.jpg"
                alt="Women holding small plant"
                loading="lazy">
           <div class="text-gray-500 sm:text-lg dark:text-gray-400">
             <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">Stand der
               Entwicklung</h2>
             <div class="flex justify-center mb-8 mt-6 lg:hidden">
-              <img src="https://climate-change-bot-images.s3.eu-central-1.amazonaws.com/plant.jpg"
+              <img src="/plant.jpg"
                    alt="Women holding small plant"
                    loading="lazy">
             </div>

@@ -1,7 +1,7 @@
 export const useUUIDStore = defineStore('uuidStore', () => {
   const uuid = ref('')
 
-  const set = function (newUuid) {
+  const set = function (newUuid: string) {
     uuid.value = newUuid
   }
 

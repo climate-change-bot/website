@@ -1,6 +1,4 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [],
   theme: {
     extend: {
       colors: {
@@ -8,6 +6,5 @@ module.exports = {
         'default-color-dark': '#005005'
       }
     }
-  },
-  plugins: []
+  }
 }

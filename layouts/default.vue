@@ -1,16 +1,15 @@
 <template>
-  <Nuxt/>
+  <div>
+    <slot/>
+  </div>
 </template>
 
-<script>
-export default {
-  layout: 'default',
-  watch: {
-    $route() {
-      this.$store.commit('header/set', false)
-    }
-  }
-}
+<script lang="ts" setup>
+
+import {useHeaderStore} from '~/store/header'
+
+const store = useHeaderStore()
+store.set(false)
 </script>
 
 <style>
