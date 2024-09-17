@@ -40,6 +40,10 @@ export default defineNuxtConfig({
   //   noscript: [{innerHTML: 'Diese Webseite benötigt JavaScript', body: true}]
   // },
 
+  runtimeConfig: {
+    rasaApi: 'http://127.0.0.1:5005'
+  },
+
   components: {
     path: '~/components',
     pathPrefix: false
