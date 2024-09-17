@@ -17,13 +17,14 @@
     "nuxt": "3.13.1",
     "pinia": "^2.2.2",
     "showdown": "^2.1.0",
-    "uuid": "^9.0.1",
+    "uuid": "10.0.0",
     "vue": "3.5.4"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "12.1.0",
     "@nuxtjs/tailwindcss": "6.8.1",
     "@pinia/nuxt": "^0.5.4",
+    "@types/showdown": "^2.0.6",
     "eslint": "^8.24.0",
     "typescript": "5.6.2"
   }
