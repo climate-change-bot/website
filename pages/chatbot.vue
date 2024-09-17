@@ -6,7 +6,6 @@
 </template>
 
 <script lang="ts" setup>
-import {useFetch} from 'nuxt/app'
 import {useMessageStore} from '~/store/message'
 import {useUUIDStore} from '~/store/uuid'
 
@@ -19,22 +18,30 @@ if (messageStore.messages.length === 0) {
     message: '/greet'
   }
 
-  const {data} = await useFetch('api/messages', {
-    method: 'POST',
-    body: {
-      sender: uuidStore.uuid,
-      message: message.message
-    }
-  })
-
-  for (const chatbotEntry of data.value) {
-    messageStore.add({
-      isUser: false,
-      isOpenai: false,
-      message: chatbotEntry.text,
-      buttons: chatbotEntry.buttons,
-      isQuizAnswer: false
+  try {
+    const response = await fetch('/api/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        sender: uuidStore.uuid,
+        message: message.message
+      })
     })
+
+    const data = await response.json()
+    for (const chatbotEntry of data) {
+      messageStore.add({
+        isUser: false,
+        isOpenai: false,
+        message: chatbotEntry.text,
+        buttons: chatbotEntry.buttons,
+        isQuizAnswer: false
+      })
+    }
+  } catch (e) {
+    console.error(e)
   }
 }
 </script>
