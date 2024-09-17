@@ -88,16 +88,15 @@
 
 <script lang="ts" setup>
 import { computed, PropType } from 'vue'
-// import showdown from 'showdown'
+import showdown from 'showdown'
 import {useMessageStore} from '~/store/message'
 
 const messageStore = useMessageStore()
 
-// Initialize the showdown converter
-// const converter = new showdown.Converter({
-//   openLinksInNewWindow: true,
-//   emoji: true
-// })
+const converter = new showdown.Converter({
+  openLinksInNewWindow: true,
+  emoji: true
+})
 
 interface Button {
   payload: string;
@@ -145,7 +144,7 @@ const emit = defineEmits(['send-button-value', 'scroll-to-end'])
 
 // Computed properties
 const htmlMessage = computed(() => {
-  return props.message.message
+  return converter.makeHtml(props.message.message)
 })
 
 const hasButtons = computed(() => {
