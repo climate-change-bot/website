@@ -108,7 +108,7 @@ const sendQuestion = async (text: string | undefined, showUserMessage: boolean) 
         messagesRef.value.scrollTop = messagesRef.value.scrollHeight
       }
 
-      const {data} = await useFetch<RasaChatbotMessage[]>('api/messages', {
+      const data = await $fetch<RasaChatbotMessage[]>('api/messages', {
         method: 'POST',
         body: {
           sender: uuidStore.uuid,
@@ -116,8 +116,8 @@ const sendQuestion = async (text: string | undefined, showUserMessage: boolean) 
         }
       })
 
-      if (data.value) {
-        for (const chatbotEntry of data.value) {
+      if (data) {
+        for (const chatbotEntry of data) {
           if (chatbotEntry.custom && chatbotEntry.custom.openai) {
             messagesStore.add({
               isUser: false,
@@ -143,7 +143,7 @@ const sendQuestion = async (text: string | undefined, showUserMessage: boolean) 
           }
         }
 
-        if (data.value.length === 0) {
+        if (data.length === 0) {
           messagesStore.add({isUser: false, message: 'Ups das habe ich nicht verstanden'})
         }
 
