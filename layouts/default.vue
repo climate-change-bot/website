@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="chatbot-default-layout">
     <slot/>
   </div>
 </template>
@@ -32,4 +32,9 @@ body {
 #matomo-opt-out-warning {
   display: none;
 }
+
+#chatbot-default-layout {
+  height: 100%;
+}
+
 </style>
