@@ -17,7 +17,7 @@ can answer questions about climate change.
 
 Only described for linux. 
 
-- Install first Node.js 16.
+- Install first Node.js 20.
 - Open console and navigate to website folder.
 - Install all node.js dependencies
 ```bash 
